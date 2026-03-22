@@ -3,7 +3,7 @@
 from httpx import AsyncClient
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ideanance.modules.analytics.service import (
+from modules.analytics.service import (
     AnalyticsService,
 )
 

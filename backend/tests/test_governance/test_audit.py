@@ -2,7 +2,7 @@
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ideanance.modules.governance.audit import (
+from modules.governance.audit import (
     GovernanceAuditEntry,
     GovernanceAuditService,
 )

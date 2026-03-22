@@ -1,9 +1,9 @@
 """Tests for security pipeline + PII detection — PLAN53."""
 
-from ideanance.core.security.pii_detection import (
+from core.security.pii_detection import (
     PIIDetector,
 )
-from ideanance.core.security.pipeline import (
+from core.security.pipeline import (
     SecurityCheckResult,
     SecurityPipeline,
     SecurityPipelineResult,

@@ -1,10 +1,10 @@
 """Tests for query rewriter — PLAN36."""
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     FRAMEWORK_EU_AI_ACT,
     FRAMEWORK_NIST_AI_RMF,
 )
-from ideanance.modules.governance.query_rewriter import QueryRewriter
+from modules.governance.query_rewriter import QueryRewriter
 
 
 def test_rewriter_returns_original_query():

@@ -2,7 +2,7 @@
 
 from pathlib import Path
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     CATEGORY_GOVERN,
     CATEGORY_MANAGE,
     CATEGORY_MAP,
@@ -11,7 +11,7 @@ from ideanance.modules.governance.constants import (
     NIST_GOVERN_1_1,
     NIST_POLICY_COUNT,
 )
-from ideanance.modules.governance.loader import (
+from modules.governance.loader import (
     load_framework_policies,
     load_policy_file,
 )

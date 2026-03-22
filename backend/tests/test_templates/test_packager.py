@@ -8,12 +8,12 @@ import zipfile
 import pytest
 import yaml
 
-from ideanance.modules.governance.engine import PolicyRule
-from ideanance.modules.governance.loader import (
+from modules.governance.engine import PolicyRule
+from modules.governance.loader import (
     EvalSuggestion,
     LoadedPolicy,
 )
-from ideanance.modules.templates.packager import (
+from modules.templates.packager import (
     MAX_ZIP_SIZE,
     TemplatePackageError,
     TemplatePackager,

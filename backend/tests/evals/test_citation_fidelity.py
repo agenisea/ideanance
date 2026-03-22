@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from ideanance.modules.governance.loader import load_all_policies
+from modules.governance.loader import load_all_policies
 
 GOLDEN_PATH = Path(__file__).parent / "golden_datasets" / "citation_fidelity.yml"
 

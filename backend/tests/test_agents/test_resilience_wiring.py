@@ -6,27 +6,27 @@ from pydantic import BaseModel
 from pydantic_ai import Agent
 from pydantic_ai.models.test import TestModel
 
-from ideanance.core.handoff.manager import HandoffManager
-from ideanance.core.handoff.protocols import HandoffManagerProtocol
-from ideanance.core.observability.costs import CostAggregator
-from ideanance.core.observability.kill_switches import KillSwitches
-from ideanance.core.observability.protocols import (
+from core.handoff.manager import HandoffManager
+from core.handoff.protocols import HandoffManagerProtocol
+from core.observability.costs import CostAggregator
+from core.observability.kill_switches import KillSwitches
+from core.observability.protocols import (
     CostAggregatorProtocol,
     KillSwitchProtocol,
 )
-from ideanance.core.resilience.circuit_breaker import (
+from core.resilience.circuit_breaker import (
     CircuitBreaker,
     CircuitBreakerConfig,
 )
-from ideanance.core.resilience.executor import ResilientExecutor
-from ideanance.core.resilience.fallback_chain import (
+from core.resilience.executor import ResilientExecutor
+from core.resilience.fallback_chain import (
     FallbackChain,
 )
-from ideanance.core.resilience.honest_error import HonestError
-from ideanance.core.resilience.protocols import (
+from core.resilience.honest_error import HonestError
+from core.resilience.protocols import (
     ResilientExecutorProtocol,
 )
-from ideanance.modules.agents.base import (
+from modules.agents.base import (
     AgentConfig,
     BaseIdeananceAgent,
 )
@@ -148,7 +148,7 @@ async def test_agent_budget_logging(caplog):
 
 def test_pipeline_accepts_protocols():
     """Pipeline constructor accepts Protocol-typed dependencies."""
-    from ideanance.modules.agents.pipeline import AgentPipeline
+    from modules.agents.pipeline import AgentPipeline
 
     # Mock all dependencies
     router = MagicMock()
@@ -176,7 +176,7 @@ def test_pipeline_accepts_protocols():
 
 async def test_streaming_error_boundary():
     """Streaming emits honest_error on failure."""
-    from ideanance.modules.agents.streaming import (
+    from modules.agents.streaming import (
         stream_agent_response,
     )
 

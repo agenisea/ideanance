@@ -138,7 +138,7 @@ async def test_topology_circular_detection(
 
 async def test_composition_root_factories_exist():
     """Verify all Phase 2 factories are importable."""
-    from ideanance.dependencies import (
+    from dependencies import (
         get_ci_generator,
         get_composition_engine,
         get_context_assembler,
@@ -161,8 +161,8 @@ async def test_composition_root_factories_exist():
 
 def test_shared_governance_engine():
     """GovernanceEngine is shared, not duplicated."""
-    from ideanance.dependencies import _governance_engine
-    from ideanance.modules.governance.engine import (
+    from dependencies import _governance_engine
+    from modules.governance.engine import (
         GovernanceEngine,
     )
 

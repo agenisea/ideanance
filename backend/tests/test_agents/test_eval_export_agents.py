@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from ideanance.modules.agents import AGENT_IDS
-from ideanance.modules.agents.base import AgentConfig
-from ideanance.modules.agents.deps import GovernanceDeps
-from ideanance.modules.agents.eval_generator import EvalGenerator, EvalSuite
-from ideanance.modules.agents.export_formatter import (
+from modules.agents import AGENT_IDS
+from modules.agents.base import AgentConfig
+from modules.agents.deps import GovernanceDeps
+from modules.agents.eval_generator import EvalGenerator, EvalSuite
+from modules.agents.export_formatter import (
     ExportFormatter,
     HandoffPackage,
 )

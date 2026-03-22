@@ -6,14 +6,14 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from ideanance.modules.governance.engine import PolicyRule
-from ideanance.modules.governance.loader import (
+from modules.governance.engine import PolicyRule
+from modules.governance.loader import (
     LoadedPolicy,
 )
-from ideanance.modules.templates.packager import (
+from modules.templates.packager import (
     TemplatePackager,
 )
-from ideanance.modules.templates.service import (
+from modules.templates.service import (
     BUILTIN_FRAMEWORKS,
     TemplateService,
 )

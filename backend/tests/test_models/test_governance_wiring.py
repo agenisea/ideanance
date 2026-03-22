@@ -10,17 +10,17 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
-from ideanance.modules.evaluation.models import EvalCriterion, Evaluation
-from ideanance.modules.governance.constants import (
+from modules.evaluation.models import EvalCriterion, Evaluation
+from modules.governance.constants import (
     CATEGORY_GOVERN,
     FRAMEWORK_NIST_AI_RMF,
     NIST_GOVERN_1_1,
 )
-from ideanance.modules.governance.models import (
+from modules.governance.models import (
     GovernanceEvalWiring,
     GovernancePolicy,
 )
-from ideanance.modules.workspace.models import Project, Workspace
+from modules.workspace.models import Project, Workspace
 
 
 async def _create_wired_project(db: AsyncSession):

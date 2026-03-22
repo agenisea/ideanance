@@ -8,7 +8,7 @@ from pathlib import Path
 
 import yaml
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     NIST_GOVERN_1_1,
     NIST_GOVERN_1_2,
     NIST_GOVERN_1_3,

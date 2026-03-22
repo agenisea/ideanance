@@ -7,13 +7,13 @@ from io import BytesIO
 import pytest
 import yaml
 
-from ideanance.modules.design.repository import SqlDesignRepository
-from ideanance.modules.evaluation.repository import (
+from modules.design.repository import SqlDesignRepository
+from modules.evaluation.repository import (
     SqlEvalCriterionRepository,
     SqlEvaluationRepository,
 )
-from ideanance.modules.export.service import ExportService
-from ideanance.modules.governance.constants import (
+from modules.export.service import ExportService
+from modules.governance.constants import (
     CATEGORY_GOVERN,
     CATEGORY_MAP,
     FRAMEWORK_NIST_AI_RMF,
@@ -21,11 +21,11 @@ from ideanance.modules.governance.constants import (
     NIST_MAP_1_5,
     SEVERITY_REQUIRED,
 )
-from ideanance.modules.governance.repository import (
+from modules.governance.repository import (
     SqlGovernanceEvalWiringRepository,
     SqlGovernancePolicyRepository,
 )
-from ideanance.modules.workspace.repository import (
+from modules.workspace.repository import (
     SqlProjectRepository,
     SqlWorkspaceRepository,
 )

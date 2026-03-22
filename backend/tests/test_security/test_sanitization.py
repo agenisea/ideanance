@@ -1,6 +1,6 @@
 """Tests for HTML sanitization and content fencing."""
 
-from ideanance.core.security.sanitization import fence_user_content, sanitize_html
+from core.security.sanitization import fence_user_content, sanitize_html
 
 
 def test_strips_script_tags():

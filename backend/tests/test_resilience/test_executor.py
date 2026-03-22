@@ -1,15 +1,15 @@
 """Tests for ResilientExecutor integration."""
 
-from ideanance.core.resilience.circuit_breaker import (
+from core.resilience.circuit_breaker import (
     CircuitBreaker,
     CircuitBreakerConfig,
 )
-from ideanance.core.resilience.executor import ResilientExecutor
-from ideanance.core.resilience.fallback_chain import (
+from core.resilience.executor import ResilientExecutor
+from core.resilience.fallback_chain import (
     FallbackChain,
     FallbackLevel,
 )
-from ideanance.core.resilience.honest_error import HonestError
+from core.resilience.honest_error import HonestError
 
 
 async def test_executor_succeeds_on_primary():

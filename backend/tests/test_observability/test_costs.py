@@ -1,6 +1,6 @@
 """Tests for cost aggregation."""
 
-from ideanance.core.observability.costs import (
+from core.observability.costs import (
     DAILY_COST_LIMIT,
     CostAggregator,
     TokenUsage,

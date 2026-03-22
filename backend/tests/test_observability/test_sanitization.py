@@ -1,6 +1,6 @@
 """Tests for PII sanitization."""
 
-from ideanance.core.observability.sanitization import (
+from core.observability.sanitization import (
     SanitizationMode,
     sanitize,
 )

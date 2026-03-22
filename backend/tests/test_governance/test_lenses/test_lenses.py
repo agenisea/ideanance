@@ -2,33 +2,33 @@
 
 from pathlib import Path
 
-from ideanance.modules.governance.engine import GovernanceEngine
-from ideanance.modules.governance.evidence import Evidence
-from ideanance.modules.governance.lenses.accountability import (
+from modules.governance.engine import GovernanceEngine
+from modules.governance.evidence import Evidence
+from modules.governance.lenses.accountability import (
     AccountabilityLens,
 )
-from ideanance.modules.governance.lenses.base import (
+from modules.governance.lenses.base import (
     get_lens_names_for_policy,
 )
-from ideanance.modules.governance.lenses.boundary import (
+from modules.governance.lenses.boundary import (
     BoundaryLens,
 )
-from ideanance.modules.governance.lenses.dignity import (
+from modules.governance.lenses.dignity import (
     DignityLens,
 )
-from ideanance.modules.governance.lenses.privacy import (
+from modules.governance.lenses.privacy import (
     PrivacyLens,
 )
-from ideanance.modules.governance.lenses.transparency import (
+from modules.governance.lenses.transparency import (
     TransparencyLens,
 )
-from ideanance.modules.governance.loader import (
+from modules.governance.loader import (
     load_framework_policies,
 )
-from ideanance.modules.governance.synthesizer import (
+from modules.governance.synthesizer import (
     GovernanceSynthesizer,
 )
-from ideanance.modules.governance.verdict import (
+from modules.governance.verdict import (
     GovernanceVerdict,
     LensFinding,
     LensResult,
@@ -166,7 +166,7 @@ def test_synthesizer_any_fail_is_blocked():
             findings=[
                 LensFinding(
                     lens="boundary",
-                    status="fail",
+                    status="blocked",
                     policy_id="p1",
                     message="bad",
                 )
@@ -185,7 +185,7 @@ def test_synthesizer_any_warn_is_escalate():
             findings=[
                 LensFinding(
                     lens="boundary",
-                    status="warn",
+                    status="escalate",
                     policy_id="p1",
                     message="meh",
                 )
@@ -232,7 +232,7 @@ def test_synthesizer_blocked_beats_escalate():
             findings=[
                 LensFinding(
                     lens="boundary",
-                    status="fail",
+                    status="blocked",
                     policy_id="p1",
                     message="bad",
                 )
@@ -243,7 +243,7 @@ def test_synthesizer_blocked_beats_escalate():
             findings=[
                 LensFinding(
                     lens="transparency",
-                    status="warn",
+                    status="escalate",
                     policy_id="p2",
                     message="meh",
                 )
@@ -296,7 +296,7 @@ def test_evaluate_with_lenses_well_documented():
 
 
 def test_category_lens_mapping():
-    from ideanance.modules.governance.loader import (
+    from modules.governance.loader import (
         LoadedPolicy,
     )
 
@@ -318,7 +318,7 @@ def test_category_lens_mapping():
 
 
 def test_category_limited_maps_to_transparency():
-    from ideanance.modules.governance.loader import (
+    from modules.governance.loader import (
         LoadedPolicy,
     )
 

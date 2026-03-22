@@ -9,7 +9,7 @@ cases:
           # purpose: MISSING - should trigger GOVERN-1.1
     expected_gaps:
       - policy: "nist-govern-1.1"
-        status: "fail"
+        status: "blocked"
 
   - name: "well_documented_core_fields"
     design:
@@ -37,9 +37,9 @@ cases:
           # risk_assessment: MISSING - triggers GOVERN-1.1 and MAP-1.5
     expected_gaps:
       - policy: "nist-govern-1.1"
-        status: "fail"
+        status: "blocked"
       - policy: "nist-map-1.5"
-        status: "fail"
+        status: "blocked"
 
   - name: "missing_use_case_documentation"
     design:
@@ -53,7 +53,7 @@ cases:
           # use_case: MISSING - triggers MAP-1.1
     expected_gaps:
       - policy: "nist-map-1.1"
-        status: "fail"
+        status: "blocked"
 
   - name: "missing_threat_model"
     design:
@@ -67,7 +67,7 @@ cases:
           # threat_model: MISSING - triggers MAP-1.5
     expected_gaps:
       - policy: "nist-map-1.5"
-        status: "fail"
+        status: "blocked"
 
   - name: "govern_1_1_passes_when_complete"
     design:

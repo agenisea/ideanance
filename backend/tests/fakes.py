@@ -12,14 +12,14 @@ from __future__ import annotations
 
 from uuid import uuid4
 
-from ideanance.modules.design.models import Design
-from ideanance.modules.evaluation.models import EvalCriterion, Evaluation
-from ideanance.modules.governance.models import (
+from modules.design.models import Design
+from modules.evaluation.models import EvalCriterion, Evaluation
+from modules.governance.models import (
     GovernanceCheck,
     GovernanceEvalWiring,
     GovernancePolicy,
 )
-from ideanance.modules.workspace.models import Project, Workspace
+from modules.workspace.models import Project, Workspace
 
 # ---------------------------------------------------------------------------
 # Workspace

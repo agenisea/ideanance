@@ -2,12 +2,12 @@
 
 import pytest
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     STATUS_FAIL,
     STATUS_PASS,
     STATUS_WARN,
 )
-from ideanance.modules.governance.engine import GovernanceEngine, PolicyRule
+from modules.governance.engine import GovernanceEngine, PolicyRule
 
 
 @pytest.fixture

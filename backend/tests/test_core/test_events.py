@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import asyncio
 
-from ideanance.core.events import Event, EventBus
+from core.events import Event, EventBus
 
 
 async def test_publish_delivers_to_subscriber():

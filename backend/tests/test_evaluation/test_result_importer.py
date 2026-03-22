@@ -1,6 +1,6 @@
 """Tests for promptfoo result importer — PLAN37."""
 
-from ideanance.modules.evaluation.result_importer import (
+from modules.evaluation.result_importer import (
     PromptfooResultImporter,
 )
 

@@ -2,7 +2,7 @@
 
 from httpx import AsyncClient
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     CATEGORY_GOVERN,
     CATEGORY_MANAGE,
     CATEGORY_MAP,
@@ -12,10 +12,10 @@ from ideanance.modules.governance.constants import (
     NIST_GOVERN_1_1,
     NIST_POLICY_COUNT,
 )
-from ideanance.modules.governance.plugins import discover_plugins
-from ideanance.modules.governance.plugins.base import PolicyRuleProvider
-from ideanance.modules.governance.plugins.nist_ai_rmf import NistAiRmfPlugin
-from ideanance.modules.governance.suggestions import EvalSuggestionEngine
+from modules.governance.plugins import discover_plugins
+from modules.governance.plugins.base import PolicyRuleProvider
+from modules.governance.plugins.nist_ai_rmf import NistAiRmfPlugin
+from modules.governance.suggestions import EvalSuggestionEngine
 
 
 def test_nist_plugin_implements_policy_rule_provider():

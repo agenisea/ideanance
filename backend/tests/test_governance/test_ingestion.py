@@ -4,18 +4,18 @@ from pathlib import Path
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ideanance.core.embeddings import EmbeddingClient
-from ideanance.modules.governance.constants import (
+from core.embeddings import EmbeddingClient
+from modules.governance.constants import (
     FRAMEWORK_NIST_AI_RMF,
     NIST_GOVERN_1_1,
 )
-from ideanance.modules.governance.loader import load_policy_file
-from ideanance.modules.ingestion.chunker import GovernanceChunker
-from ideanance.modules.ingestion.repository import (
+from modules.governance.loader import load_policy_file
+from modules.ingestion.chunker import GovernanceChunker
+from modules.ingestion.repository import (
     SqlGovernanceChunkRepository,
 )
-from ideanance.modules.ingestion.seeder import NIST_DIR, FrameworkSeeder
-from ideanance.modules.ingestion.service import IngestionService
+from modules.ingestion.seeder import NIST_DIR, FrameworkSeeder
+from modules.ingestion.service import IngestionService
 
 FIXTURE_PATH = (
     Path(__file__).resolve().parents[3]
@@ -52,7 +52,7 @@ def test_chunker_produces_main_and_remediation():
 
 
 def test_chunker_all_policies():
-    from ideanance.modules.governance.loader import (
+    from modules.governance.loader import (
         load_framework_policies,
     )
 

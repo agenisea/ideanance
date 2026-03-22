@@ -6,9 +6,9 @@ cases:
           purpose: "Automated hiring decisions"
     expected_gaps:
       - policy: "eu-art9-risk-management"
-        status: "fail"
+        status: "blocked"
       - policy: "eu-art10-data-governance"
-        status: "fail"
+        status: "blocked"
 
   - name: "chatbot_missing_disclosure"
     design:
@@ -17,7 +17,7 @@ cases:
           purpose: "Customer support chatbot"
     expected_gaps:
       - policy: "eu-art50-1-chatbot-disclosure"
-        status: "fail"
+        status: "blocked"
 
   - name: "well_documented_high_risk"
     design:

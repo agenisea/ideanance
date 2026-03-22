@@ -4,8 +4,8 @@ import time
 
 from pydantic import BaseModel
 
-from ideanance.modules.agents.base import AgentRunMetadata
-from ideanance.modules.agents.governance_filter import GovernanceFilter
+from modules.agents.base import AgentRunMetadata
+from modules.agents.governance_filter import GovernanceFilter
 
 
 class MockAgentOutput(BaseModel):

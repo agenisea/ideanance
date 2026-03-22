@@ -4,14 +4,14 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from ideanance.modules.agents import AGENT_IDS
-from ideanance.modules.agents.base import AgentConfig
-from ideanance.modules.agents.deps import GovernanceDeps
-from ideanance.modules.agents.design_advisor import DesignAdvisor
-from ideanance.modules.agents.governance_filter import GovernanceFilter
-from ideanance.modules.agents.pipeline import AgentPipeline
-from ideanance.modules.agents.policy_interpreter import PolicyInterpreter
-from ideanance.modules.agents.query_router import QueryRouter
+from modules.agents import AGENT_IDS
+from modules.agents.base import AgentConfig
+from modules.agents.deps import GovernanceDeps
+from modules.agents.design_advisor import DesignAdvisor
+from modules.agents.governance_filter import GovernanceFilter
+from modules.agents.pipeline import AgentPipeline
+from modules.agents.policy_interpreter import PolicyInterpreter
+from modules.agents.query_router import QueryRouter
 
 
 def _build_pipeline(

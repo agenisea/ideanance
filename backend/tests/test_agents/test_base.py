@@ -8,8 +8,8 @@ from pydantic import BaseModel
 from pydantic_ai import Agent
 from pydantic_ai.models.test import TestModel
 
-from ideanance.modules.agents import AGENT_IDS, MODELS, TIMEOUTS_MS, TOKEN_BUDGETS
-from ideanance.modules.agents.base import (
+from modules.agents import AGENT_IDS, MODELS, TIMEOUTS_MS, TOKEN_BUDGETS
+from modules.agents.base import (
     AgentConfig,
     AgentRunMetadata,
     BaseIdeananceAgent,

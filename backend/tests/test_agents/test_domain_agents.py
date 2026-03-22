@@ -8,15 +8,15 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from ideanance.modules.agents import AGENT_IDS
-from ideanance.modules.agents.base import AgentConfig
-from ideanance.modules.agents.deps import GovernanceDeps, RouterDeps
-from ideanance.modules.agents.design_advisor import DesignAdvice, DesignAdvisor
-from ideanance.modules.agents.policy_interpreter import (
+from modules.agents import AGENT_IDS
+from modules.agents.base import AgentConfig
+from modules.agents.deps import GovernanceDeps, RouterDeps
+from modules.agents.design_advisor import DesignAdvice, DesignAdvisor
+from modules.agents.policy_interpreter import (
     PolicyExplanation,
     PolicyInterpreter,
 )
-from ideanance.modules.agents.query_router import QueryRouter, RouteDecision
+from modules.agents.query_router import QueryRouter, RouteDecision
 
 # --- Query Router ---
 

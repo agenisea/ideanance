@@ -2,13 +2,13 @@
 
 from pathlib import Path
 
-from ideanance.modules.governance.engine import (
+from modules.governance.engine import (
     GovernanceEngine,
 )
-from ideanance.modules.governance.loader import (
+from modules.governance.loader import (
     load_framework_policies,
 )
-from ideanance.modules.governance.verdict import (
+from modules.governance.verdict import (
     GovernanceVerdict,
 )
 

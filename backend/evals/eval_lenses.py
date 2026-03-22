@@ -8,22 +8,22 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ideanance.modules.governance.lenses.accountability import (
+from modules.governance.lenses.accountability import (
     AccountabilityLens,
 )
-from ideanance.modules.governance.lenses.boundary import (
+from modules.governance.lenses.boundary import (
     BoundaryLens,
 )
-from ideanance.modules.governance.lenses.dignity import (
+from modules.governance.lenses.dignity import (
     DignityLens,
 )
-from ideanance.modules.governance.lenses.privacy import (
+from modules.governance.lenses.privacy import (
     PrivacyLens,
 )
-from ideanance.modules.governance.lenses.transparency import (
+from modules.governance.lenses.transparency import (
     TransparencyLens,
 )
-from ideanance.modules.governance.loader import (
+from modules.governance.loader import (
     load_framework_policies,
 )
 

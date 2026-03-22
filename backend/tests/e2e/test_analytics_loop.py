@@ -2,7 +2,7 @@
 
 from httpx import AsyncClient
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     FRAMEWORK_ID_NIST_AI_RMF,
 )
 

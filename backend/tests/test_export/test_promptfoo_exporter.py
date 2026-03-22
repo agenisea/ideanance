@@ -2,7 +2,7 @@
 
 import yaml
 
-from ideanance.modules.export.promptfoo_exporter import (
+from modules.export.promptfoo_exporter import (
     ASSERTION_TYPE_MAP,
     EvalCriterionInput,
     PromptfooExporter,

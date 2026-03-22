@@ -3,20 +3,20 @@
 
 import pytest
 
-from ideanance.core.events import EVENT_QUEUE_MAX_SIZE, Event, EventBus
-from ideanance.core.observability.context import (
+from core.events import EVENT_QUEUE_MAX_SIZE, Event, EventBus
+from core.observability.context import (
     RequestContext,
     get_context,
     set_context,
 )
-from ideanance.core.protocols import RateLimiterProtocol
-from ideanance.core.rate_limit import RateLimiter
-from ideanance.core.security.input_validation import (
+from core.protocols import RateLimiterProtocol
+from core.rate_limit import RateLimiter
+from core.security.input_validation import (
     MAX_POLICY_YAML_SIZE,
     validate_content_size,
 )
-from ideanance.core.security.secret_detection import has_secrets
-from ideanance.modules.governance.custom_framework import (
+from core.security.secret_detection import has_secrets
+from modules.governance.custom_framework import (
     CustomFrameworkService,
     YamlValidationError,
 )

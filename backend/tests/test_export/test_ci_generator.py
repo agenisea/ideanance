@@ -1,6 +1,6 @@
 """Tests for CI workflow generator — PLAN38."""
 
-from ideanance.modules.export.ci_generator import CIWorkflowGenerator
+from modules.export.ci_generator import CIWorkflowGenerator
 
 
 def test_generates_valid_yaml():

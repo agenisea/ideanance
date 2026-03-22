@@ -6,10 +6,10 @@ import asyncio
 
 import pytest
 
-from ideanance.core.events import EventBus
-from ideanance.modules.governance.engine import GovernanceEngine
-from ideanance.modules.governance.schemas import GovernanceEvalWiringCreate
-from ideanance.modules.governance.service import GovernanceService
+from core.events import EventBus
+from modules.governance.engine import GovernanceEngine
+from modules.governance.schemas import GovernanceEvalWiringCreate
+from modules.governance.service import GovernanceService
 from tests.fakes import (
     FakeEvalCriterionRepo,
     FakeGovernanceCheckRepo,

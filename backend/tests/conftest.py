@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
 )
 
-from ideanance.models import Base, import_all_models
+from models import Base, import_all_models
 
 import_all_models()
 
@@ -39,8 +39,8 @@ async def db(engine) -> AsyncSession:
 @pytest.fixture
 async def client(engine):
     """API test client using a shared connection so all requests see the same data."""
-    from ideanance.database import get_db
-    from ideanance.main import app
+    from database import get_db
+    from main import app
 
     # Use a single connection for all requests in a test so in-memory SQLite
     # shares state across sessions (each session binds to this connection).

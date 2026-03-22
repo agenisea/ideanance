@@ -1,9 +1,9 @@
 """Tests for HandoffManager."""
 
-from ideanance.core.handoff.limits import MAX_HANDOFFS_PER_REQUEST
-from ideanance.core.handoff.manager import HandoffManager
-from ideanance.core.handoff.schema import HandoffRequest
-from ideanance.modules.agents import AGENT_IDS
+from core.handoff.limits import MAX_HANDOFFS_PER_REQUEST
+from core.handoff.manager import HandoffManager
+from core.handoff.schema import HandoffRequest
+from modules.agents import AGENT_IDS
 
 
 def _request(

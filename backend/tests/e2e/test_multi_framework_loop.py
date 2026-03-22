@@ -2,7 +2,7 @@
 
 from httpx import AsyncClient
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     EU_POLICY_COUNT,
     FRAMEWORK_EU_AI_ACT,
     FRAMEWORK_ID_EU_AI_ACT,

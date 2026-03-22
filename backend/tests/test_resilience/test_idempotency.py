@@ -1,6 +1,6 @@
 """Tests for idempotency."""
 
-from ideanance.core.resilience.idempotency import (
+from core.resilience.idempotency import (
     IdempotencyStore,
     generate_idempotency_key,
     hash_content,

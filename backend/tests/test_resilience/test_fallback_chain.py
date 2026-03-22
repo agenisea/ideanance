@@ -1,10 +1,10 @@
 """Tests for 5-level fallback chain."""
 
-from ideanance.core.resilience.fallback_chain import (
+from core.resilience.fallback_chain import (
     FallbackChain,
     FallbackLevel,
 )
-from ideanance.core.resilience.honest_error import HonestError
+from core.resilience.honest_error import HonestError
 
 
 async def test_resolves_at_primary():

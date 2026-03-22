@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from ideanance.modules.workspace.schemas import ProjectCreate, WorkspaceCreate
-from ideanance.modules.workspace.service import WorkspaceService
+from modules.workspace.schemas import ProjectCreate, WorkspaceCreate
+from modules.workspace.service import WorkspaceService
 from tests.fakes import FakeProjectRepository, FakeWorkspaceRepository
 
 

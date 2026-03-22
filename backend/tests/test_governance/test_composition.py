@@ -1,12 +1,12 @@
 """Tests for multi-framework composition engine — PLAN33."""
 
-from ideanance.modules.governance.composition import (
+from modules.governance.composition import (
     MultiFrameworkCompositionEngine,
 )
-from ideanance.modules.governance.conflict_detection import ConflictDetector
-from ideanance.modules.governance.cross_mapping import CrossFrameworkMapper
-from ideanance.modules.governance.engine import GovernanceEngine, PolicyRule
-from ideanance.modules.governance.loader import LoadedPolicy
+from modules.governance.conflict_detection import ConflictDetector
+from modules.governance.cross_mapping import CrossFrameworkMapper
+from modules.governance.engine import GovernanceEngine, PolicyRule
+from modules.governance.loader import LoadedPolicy
 
 
 def _make_nist_policy() -> LoadedPolicy:

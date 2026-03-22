@@ -2,14 +2,14 @@
 
 from pathlib import Path
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     FRAMEWORK_EU_AI_ACT,
     FRAMEWORK_NIST_AI_RMF,
     NIST_GOVERN_1_4,
     NIST_MANAGE_2_1,
 )
-from ideanance.modules.governance.knowledge_graph import GraphEdge, KnowledgeGraph
-from ideanance.modules.ingestion.graph_builder import KnowledgeGraphLoader
+from modules.governance.knowledge_graph import GraphEdge, KnowledgeGraph
+from modules.ingestion.graph_builder import KnowledgeGraphLoader
 
 CROSS_MAPPINGS_DIR = (
     Path(__file__).resolve().parents[3] / "governance-policies" / "cross_mappings"

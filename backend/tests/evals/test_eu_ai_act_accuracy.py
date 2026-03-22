@@ -5,8 +5,8 @@ from pathlib import Path
 import pytest
 import yaml
 
-from ideanance.modules.governance.engine import GovernanceEngine
-from ideanance.modules.governance.loader import load_framework_policies
+from modules.governance.engine import GovernanceEngine
+from modules.governance.loader import load_framework_policies
 
 GOLDEN_DATASET = (
     Path(__file__).parent / "golden_datasets" / "eu_ai_act_accuracy.yml"
@@ -73,7 +73,7 @@ def test_eu_ai_act_golden(case, engine, policies_by_id):
                 severity=policy.severity,
                 rules=policy.rules,
             )
-            if result.status == "fail":
+            if result.status == "blocked":
                 fail_count += 1
         # Well-documented designs should pass majority of policies
         # Some EU policies require very specific fields (biometrics, deepfake, etc.)

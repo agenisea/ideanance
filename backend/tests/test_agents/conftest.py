@@ -12,10 +12,10 @@ from unittest.mock import MagicMock
 import pytest
 from pydantic_ai.models.test import TestModel
 
-from ideanance.modules.agents import AGENT_IDS
-from ideanance.modules.agents.base import AgentConfig
-from ideanance.modules.agents.deps import GovernanceDeps, RouterDeps
-from ideanance.modules.governance.constants import (
+from modules.agents import AGENT_IDS
+from modules.agents.base import AgentConfig
+from modules.agents.deps import GovernanceDeps, RouterDeps
+from modules.governance.constants import (
     CATEGORY_GOVERN,
     FRAMEWORK_NIST_AI_RMF,
     NIST_GOVERN_1_1,

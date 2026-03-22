@@ -1,6 +1,6 @@
 """Tests for model registry — PLAN47."""
 
-from ideanance.modules.agents.model_registry import (
+from modules.agents.model_registry import (
     MODEL_REGISTRY,
     estimate_cost_per_query,
     get_model,

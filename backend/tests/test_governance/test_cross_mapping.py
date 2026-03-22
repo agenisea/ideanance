@@ -2,11 +2,11 @@
 
 from pathlib import Path
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     FRAMEWORK_EU_AI_ACT,
     FRAMEWORK_NIST_AI_RMF,
 )
-from ideanance.modules.governance.cross_mapping import CrossFrameworkMapper
+from modules.governance.cross_mapping import CrossFrameworkMapper
 
 CROSS_MAPPINGS_DIR = (
     Path(__file__).resolve().parents[3] / "governance-policies" / "cross_mappings"

@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 
 from httpx import AsyncClient
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     EU_CATEGORY_HIGH_RISK,
     EU_CATEGORY_LIMITED,
     EU_CATEGORY_PROHIBITED,
@@ -17,13 +17,13 @@ from ideanance.modules.governance.constants import (
     FRAMEWORK_NIST_AI_RMF,
     NIST_POLICY_COUNT,
 )
-from ideanance.modules.governance.loader import (
+from modules.governance.loader import (
     load_all_policies,
     load_framework_policies,
 )
-from ideanance.modules.governance.plugins.base import PolicyRuleProvider
-from ideanance.modules.governance.plugins.eu_ai_act import EuAiActPlugin
-from ideanance.modules.governance.suggestions import EvalSuggestionEngine
+from modules.governance.plugins.base import PolicyRuleProvider
+from modules.governance.plugins.eu_ai_act import EuAiActPlugin
+from modules.governance.suggestions import EvalSuggestionEngine
 
 EU_FIXTURES_DIR = (
     Path(__file__).resolve().parents[3] / "governance-policies" / "eu-ai-act"

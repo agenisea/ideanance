@@ -2,9 +2,9 @@
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ideanance.core.embeddings import EMBEDDING_DIMENSION, EmbeddingClient
-from ideanance.modules.governance.chunk_models import GovernanceChunk
-from ideanance.modules.governance.constants import (
+from core.embeddings import EMBEDDING_DIMENSION, EmbeddingClient
+from modules.governance.chunk_models import GovernanceChunk
+from modules.governance.constants import (
     CATEGORY_GOVERN,
     CATEGORY_MAP,
     CATEGORY_MEASURE,
@@ -12,8 +12,8 @@ from ideanance.modules.governance.constants import (
     NIST_GOVERN_1_1,
     NIST_MAP_1_5,
 )
-from ideanance.modules.governance.context_assembly import ContextAssembler
-from ideanance.modules.governance.retrieval import (
+from modules.governance.context_assembly import ContextAssembler
+from modules.governance.retrieval import (
     HybridRetriever,
     RetrievalResult,
 )

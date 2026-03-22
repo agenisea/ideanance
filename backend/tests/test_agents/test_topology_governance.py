@@ -1,17 +1,17 @@
 """Tests for topology governance — PLAN35."""
 
-from ideanance.modules.agents.topology import (
+from modules.agents.topology import (
     TopologyGovernanceService,
     compute_delegation_depth,
     compute_pipeline_score,
     detect_circular_delegation,
     identify_governance_bottlenecks,
 )
-from ideanance.modules.agents.topology_schemas import (
+from modules.agents.topology_schemas import (
     AgentGovernanceResult,
     AgentNode,
 )
-from ideanance.modules.governance.engine import GovernanceEngine, PolicyRule
+from modules.governance.engine import GovernanceEngine, PolicyRule
 
 # --- Pure function tests ---
 

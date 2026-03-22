@@ -5,9 +5,9 @@ from pathlib import Path
 import pytest
 import yaml
 
-from ideanance.modules.governance.conflict_detection import ConflictDetector
-from ideanance.modules.governance.cross_mapping import CrossFrameworkMapper
-from ideanance.modules.governance.loader import load_framework_policies
+from modules.governance.conflict_detection import ConflictDetector
+from modules.governance.cross_mapping import CrossFrameworkMapper
+from modules.governance.loader import load_framework_policies
 
 GOLDEN_DATASET = (
     Path(__file__).parent / "golden_datasets" / "conflict_detection.yml"

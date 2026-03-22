@@ -8,10 +8,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ideanance.modules.governance.engine import (
+from modules.governance.engine import (
     GovernanceEngine,
 )
-from ideanance.modules.governance.loader import (
+from modules.governance.loader import (
     load_framework_policies,
 )
 
@@ -49,7 +49,7 @@ CASES = [
         "name": "missing_purpose_fails_govern_1_1",
         "policy": "nist-govern-1.1",
         "design": {"design": {}},
-        "expected": "fail",
+        "expected": "blocked",
     },
     {
         "name": "with_purpose_passes_field_present",
@@ -70,7 +70,7 @@ CASES = [
         "name": "empty_design_fails_all",
         "policy": "nist-map-1.1",
         "design": {"design": {}},
-        "expected": "fail",
+        "expected": "blocked",
     },
 ]
 

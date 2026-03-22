@@ -8,7 +8,7 @@ Proves the Milestone 6 success criteria:
 
 import pytest
 
-from ideanance.modules.governance.constants import (
+from modules.governance.constants import (
     FRAMEWORK_ID_NIST_AI_RMF,
     NIST_POLICY_COUNT,
     SEVERITY_REQUIRED,

@@ -1,6 +1,6 @@
 """Tests for secret detection in user-submitted content."""
 
-from ideanance.core.security.secret_detection import detect_secrets, has_secrets
+from core.security.secret_detection import detect_secrets, has_secrets
 
 
 def test_detects_anthropic_api_key():

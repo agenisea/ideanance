@@ -1,6 +1,6 @@
 """Tests for input validation utilities."""
 
-from ideanance.core.security.input_validation import (
+from core.security.input_validation import (
     ALLOWED_UPLOAD_TYPES,
     MAX_DESIGN_CONTENT_SIZE,
     validate_content_size,

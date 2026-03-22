@@ -2,11 +2,11 @@
 
 import pytest
 
-from ideanance.modules.governance.custom_framework import (
+from modules.governance.custom_framework import (
     CustomFrameworkService,
     YamlValidationError,
 )
-from ideanance.modules.governance.engine import GovernanceEngine
+from modules.governance.engine import GovernanceEngine
 
 VALID_POLICY_YAML = """\
 policy:
@@ -235,7 +235,7 @@ def test_custom_policy_evaluates_with_engine():
     # Test failing design
     failing_design = {"design": {}}
     results = engine.evaluate(failing_design, policy.rules)
-    assert any(r.status == "fail" for r in results)
+    assert any(r.status == "blocked" for r in results)
 
 
 def test_framework_not_found_raises():

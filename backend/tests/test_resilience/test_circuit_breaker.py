@@ -1,6 +1,6 @@
 """Tests for circuit breaker."""
 
-from ideanance.core.resilience.circuit_breaker import (
+from core.resilience.circuit_breaker import (
     CircuitBreaker,
     CircuitBreakerConfig,
     CircuitState,

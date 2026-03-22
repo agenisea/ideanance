@@ -1,6 +1,6 @@
 """Tests for SSRF prevention."""
 
-from ideanance.core.security.ssrf_prevention import validate_url
+from core.security.ssrf_prevention import validate_url
 
 
 def test_allows_public_https():

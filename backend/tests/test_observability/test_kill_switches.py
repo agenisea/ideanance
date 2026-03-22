@@ -1,9 +1,9 @@
 """Tests for kill switches."""
 
-from ideanance.core.observability.kill_switches import (
+from core.observability.kill_switches import (
     KillSwitches,
 )
-from ideanance.modules.agents import AGENT_IDS
+from modules.agents import AGENT_IDS
 
 
 def test_kill_switches():
