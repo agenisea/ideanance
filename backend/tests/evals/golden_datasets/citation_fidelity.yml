@@ -1,0 +1,29 @@
+cases:
+  - name: "purpose_query"
+    query: "What does NIST AI RMF say about defining AI purpose?"
+    expected_sections:
+      - "nist-govern-1.1"
+    invalid_sections:
+      - "GOVERN-99"
+      - "FAKE-1.0"
+
+  - name: "risk_assessment_query"
+    query: "How should I assess risks for my AI agent?"
+    expected_sections:
+      - "nist-map-1.5"
+    invalid_sections:
+      - "MAP-99.1"
+
+  - name: "human_oversight_query"
+    query: "What governance requirements exist for human oversight?"
+    expected_sections:
+      - "nist-manage-2.1"
+    invalid_sections:
+      - "MANAGE-99"
+
+  - name: "transparency_query"
+    query: "What are the NIST requirements for AI transparency?"
+    expected_sections:
+      - "nist-govern-1.4"
+    invalid_sections:
+      - "GOVERN-77"

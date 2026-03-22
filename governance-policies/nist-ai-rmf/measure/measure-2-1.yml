@@ -1,0 +1,32 @@
+policy:
+  id: "nist-measure-2.1"
+  framework: "NIST AI RMF"
+  category: "MEASURE"
+  subcategory: "2.1"
+  name: "Evaluation Metrics Defined"
+  description: "AI system performance and trustworthiness are measured with appropriate metrics"
+  severity: "warning"
+  applies_to: ["agent_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.eval_criteria"
+      message: "Design must define evaluation criteria"
+
+    - check: "field_present"
+      target: "design.success_metrics"
+      message: "Design must specify success metrics"
+
+  remediation:
+    guidance: "Define evaluation criteria and success metrics for your AI system before deployment."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Evaluation criteria defined"
+      metric: "eval_criteria_count"
+      threshold: "count >= 1"
+    - criterion: "Success metrics specified"
+      metric: "success_metrics_present"
+      threshold: "boolean: true"

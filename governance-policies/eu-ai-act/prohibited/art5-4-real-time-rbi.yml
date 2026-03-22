@@ -1,0 +1,35 @@
+policy:
+  id: "eu-art5-4-real-time-rbi"
+  framework: "EU AI Act"
+  category: "prohibited"
+  subcategory: "Article 5(1)(h)"
+  name: "Prohibition on Real-Time Remote Biometric Identification"
+  description: "Use of real-time remote biometric identification systems in publicly accessible spaces for law enforcement is prohibited, subject to narrow exceptions"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "unacceptable"
+  article_reference: "Art. 5(1)(h)"
+
+  rules:
+    - check: "field_present"
+      target: "design.biometric_identification_review"
+      message: "Must document review of real-time biometric identification capabilities"
+
+    - check: "field_one_of"
+      target: "design.real_time_rbi_risk"
+      values: ["none", "not_applicable", "exception_documented"]
+      message: "Real-time remote biometric identification must be absent or exception documented"
+
+  remediation:
+    guidance: "Confirm your AI system does not perform real-time remote biometric identification in publicly accessible spaces. If an exception applies, document the legal basis."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 5"
+
+  eval_suggestions:
+    - criterion: "Biometric identification review documented"
+      metric: "rbi_review_documented"
+      threshold: "boolean: true"
+    - criterion: "Real-time RBI risk assessed"
+      metric: "real_time_rbi_risk_assessed"
+      threshold: "boolean: true"

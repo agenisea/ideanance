@@ -1,0 +1,19 @@
+framework:
+  id: "nist-ai-rmf"
+  name: "NIST AI Risk Management Framework"
+  version: "1.0"
+  source: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+  functions:
+    - id: "GOVERN"
+      name: "Govern"
+      description: "Cultivate and implement a culture of risk management"
+    - id: "MAP"
+      name: "Map"
+      description: "Contextualize risks in the operational environment"
+    - id: "MEASURE"
+      name: "Measure"
+      description: "Employ quantitative/qualitative tools to assess risks"
+    - id: "MANAGE"
+      name: "Manage"
+      description: "Allocate resources to mapped and measured risks"
+  total_policies: 20

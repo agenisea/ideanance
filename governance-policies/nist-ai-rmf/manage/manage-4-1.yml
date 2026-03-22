@@ -1,0 +1,38 @@
+policy:
+  id: "nist-manage-4.1"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MANAGE"
+  subcategory: "4.1"
+  name: "Risk Monitoring"
+  description: "Ongoing risk monitoring mechanisms are established to detect, track, and respond to emerging risks throughout the AI system's operational lifecycle. This includes a comprehensive monitoring plan, defined alert thresholds that trigger investigation or intervention, and a regular review frequency to ensure the risk profile remains current and mitigation strategies remain effective."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.monitoring_plan"
+      message: "Design must include a risk monitoring plan"
+
+    - check: "field_not_empty_list"
+      target: "design.alert_thresholds"
+      message: "Design must define alert thresholds that trigger investigation or intervention"
+
+    - check: "field_matches_pattern"
+      target: "design.review_frequency"
+      pattern: "^(daily|weekly|bi-weekly|monthly|quarterly|semi-annually|annually)$"
+      message: "Design must specify a valid review frequency (e.g., daily, weekly, monthly, quarterly)"
+
+  remediation:
+    guidance: "Establish a monitoring plan that covers key risk indicators and system performance metrics, define alert thresholds with clear escalation actions for each threshold level, and set a review frequency appropriate to the system's risk level (higher-risk systems should have more frequent reviews)."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Monitoring plan covers all identified risk areas with active tracking"
+      metric: "monitoring_coverage_rate"
+      threshold: "95%"
+    - criterion: "Alert thresholds trigger timely investigation within defined SLAs"
+      metric: "alert_response_timeliness"
+      threshold: "95%"

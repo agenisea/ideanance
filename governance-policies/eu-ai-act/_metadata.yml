@@ -1,0 +1,21 @@
+framework:
+  id: "eu-ai-act"
+  name: "EU AI Act"
+  version: "2024/1689"
+  effective_date: "2026-08-02"
+  source: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+  description: "EU regulation laying down harmonised rules on artificial intelligence"
+  categories:
+    - id: "PROHIBITED"
+      name: "Prohibited"
+      description: "AI practices that are banned outright (Article 5)"
+    - id: "HIGH-RISK"
+      name: "High-Risk"
+      description: "Strict obligations for high-risk AI systems (Articles 6-49, Annex III)"
+    - id: "LIMITED"
+      name: "Limited"
+      description: "Transparency obligations for limited-risk AI (Article 50)"
+    - id: "TRANSPARENCY"
+      name: "Transparency"
+      description: "Voluntary codes of conduct and regulatory sandbox (Articles 53, 95)"
+  total_policies: 20

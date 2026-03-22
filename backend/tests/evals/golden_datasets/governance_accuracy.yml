@@ -1,0 +1,84 @@
+cases:
+  - name: "credit_scoring_ai_missing_purpose"
+    design:
+      name: "Credit Scoring Agent"
+      design_type: "agent"
+      content:
+        design:
+          intended_users: ["loan officers"]
+          # purpose: MISSING - should trigger GOVERN-1.1
+    expected_gaps:
+      - policy: "nist-govern-1.1"
+        status: "fail"
+
+  - name: "well_documented_core_fields"
+    design:
+      name: "Support Agent"
+      design_type: "agent"
+      content:
+        design:
+          purpose: "Help customers with billing questions"
+          intended_users: ["customers", "support staff"]
+          risk_assessment: "Low risk - no PII processing, human oversight on all responses. Comprehensive."
+    expected_gaps: []
+    # Only check GOVERN-1.1 passes (purpose + users + risk_assessment present)
+    expected_passes:
+      - policy: "nist-govern-1.1"
+        status: "pass"
+
+  - name: "high_risk_no_risk_assessment"
+    design:
+      name: "Medical Triage Agent"
+      design_type: "agent"
+      content:
+        design:
+          purpose: "Triage patient symptoms"
+          intended_users: ["patients"]
+          # risk_assessment: MISSING - triggers GOVERN-1.1 and MAP-1.5
+    expected_gaps:
+      - policy: "nist-govern-1.1"
+        status: "fail"
+      - policy: "nist-map-1.5"
+        status: "fail"
+
+  - name: "missing_use_case_documentation"
+    design:
+      name: "Data Analyst Agent"
+      design_type: "agent"
+      content:
+        design:
+          purpose: "Analyze business metrics"
+          risk_assessment: "Low risk internal analytics tool with comprehensive controls"
+          intended_users: ["data analysts"]
+          # use_case: MISSING - triggers MAP-1.1
+    expected_gaps:
+      - policy: "nist-map-1.1"
+        status: "fail"
+
+  - name: "missing_threat_model"
+    design:
+      name: "Data Pipeline"
+      design_type: "pipeline"
+      content:
+        design:
+          purpose: "ETL pipeline for user data"
+          intended_users: ["data engineers"]
+          risk_assessment: "Medium risk due to user data handling with privacy controls"
+          # threat_model: MISSING - triggers MAP-1.5
+    expected_gaps:
+      - policy: "nist-map-1.5"
+        status: "fail"
+
+  - name: "govern_1_1_passes_when_complete"
+    design:
+      name: "Internal Knowledge Bot"
+      design_type: "agent"
+      content:
+        design:
+          purpose: "Answer employee questions from company wiki"
+          intended_users: ["employees"]
+          risk_assessment: "Low risk - internal data only, no PII. Comprehensive risk assessment."
+    expected_gaps: []
+    expected_passes:
+      - policy: "nist-govern-1.1"
+        status: "pass"

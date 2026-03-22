@@ -1,0 +1,27 @@
+policy:
+  id: "custom-example-1"
+  framework: "Custom"
+  category: "YOUR_CATEGORY"
+  subcategory: ""
+  name: "Your Policy Name"
+  description: "Describe what this policy checks"
+  severity: "warning"  # error | warning | info
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.your_field"
+      message: "Your field must be present"
+
+    # Available rule types:
+    # - field_present: check field exists and is non-empty
+    # - field_min_length: check string length (params: min_length)
+    # - field_one_of: check value in allowed set (params: values)
+    # - field_not_empty_list: check list has items
+    # - field_matches_pattern: check regex match (params: pattern)
+
+  remediation:
+    guidance: "Guidance for how to fix this policy violation."
+    references:
+      - url: "https://example.com"
+        title: "Reference title"

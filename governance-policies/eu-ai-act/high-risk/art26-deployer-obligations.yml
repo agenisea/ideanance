@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art26-deployer-obligations"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 26"
+  name: "Obligations of Deployers"
+  description: "Deployers of high-risk AI systems shall take appropriate technical and organisational measures to ensure they use such systems in accordance with the instructions of use"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 26"
+
+  rules:
+    - check: "field_present"
+      target: "design.deployer_instructions"
+      message: "Must provide deployment instructions"
+
+    - check: "field_present"
+      target: "design.monitoring_plan"
+      message: "Must define monitoring plan for deployed system"
+
+  remediation:
+    guidance: "Provide clear deployment instructions and monitoring requirements. Deployers must implement human oversight, monitor for risks, and report serious incidents."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 26"
+
+  eval_suggestions:
+    - criterion: "Deployer instructions provided"
+      metric: "deployer_instructions_present"
+      threshold: "boolean: true"
+    - criterion: "Monitoring plan defined"
+      metric: "monitoring_plan_present"
+      threshold: "boolean: true"

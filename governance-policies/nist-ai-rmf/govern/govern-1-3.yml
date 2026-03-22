@@ -1,0 +1,42 @@
+policy:
+  id: "nist-govern-1.3"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "GOVERN"
+  subcategory: "1.3"
+  name: "Organizational AI Policies"
+  description: "Organizational policies and practices are in place to address AI data governance, third-party dependencies, and data provenance. This includes documentation of data sources, supply chain transparency for third-party models and components, and governance controls ensuring data quality, privacy, and integrity throughout the AI system lifecycle."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.data_sources"
+      message: "Design must document all data sources used by the AI system"
+
+    - check: "field_present"
+      target: "design.data_governance_policy"
+      message: "Design must reference an applicable data governance policy"
+
+    - check: "field_not_empty_list"
+      target: "design.third_party_dependencies"
+      message: "Design must list all third-party dependencies including models, APIs, and libraries"
+
+    - check: "field_min_length"
+      target: "design.data_governance_policy"
+      min_length: 30
+      message: "Data governance policy description must be substantive"
+
+  remediation:
+    guidance: "Document all data sources with provenance information, list third-party dependencies with version and license details, and reference the organizational data governance policy that applies to this AI system."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "All data sources are documented with provenance metadata"
+      metric: "data_source_coverage"
+      threshold: "100%"
+    - criterion: "Third-party dependencies are inventoried and assessed for risk"
+      metric: "dependency_documentation_rate"
+      threshold: "100%"

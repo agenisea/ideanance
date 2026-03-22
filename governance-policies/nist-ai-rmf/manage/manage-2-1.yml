@@ -1,0 +1,42 @@
+policy:
+  id: "nist-manage-2.1"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MANAGE"
+  subcategory: "2.1"
+  name: "Human Oversight"
+  description: "Human oversight mechanisms are established to maintain meaningful human control over AI system operations. This includes defining human-in-the-loop requirements for critical decisions, implementing override mechanisms that allow humans to intervene in or halt AI operations, and establishing escalation procedures for situations that exceed the AI system's safe operating boundaries."
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.human_in_the_loop"
+      message: "Design must define human-in-the-loop requirements for critical decisions"
+
+    - check: "field_not_empty_list"
+      target: "design.override_mechanisms"
+      message: "Design must specify override mechanisms for human intervention"
+
+    - check: "field_present"
+      target: "design.escalation_procedures"
+      message: "Design must define escalation procedures for edge cases and failures"
+
+    - check: "field_min_length"
+      target: "design.human_in_the_loop"
+      min_length: 30
+      message: "Human-in-the-loop requirements must be substantive"
+
+  remediation:
+    guidance: "Define clear human-in-the-loop requirements specifying which decisions require human approval, implement override mechanisms (e.g., kill switches, manual takeover) that allow authorized personnel to intervene at any point, and establish escalation procedures with defined triggers, response timelines, and responsible parties."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Human-in-the-loop controls are active for all critical decision points"
+      metric: "human_oversight_coverage"
+      threshold: "100%"
+    - criterion: "Override mechanisms are tested and functional"
+      metric: "override_mechanism_test_pass_rate"
+      threshold: "100%"

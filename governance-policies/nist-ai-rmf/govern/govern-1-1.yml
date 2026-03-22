@@ -1,0 +1,40 @@
+policy:
+  id: "nist-govern-1.1"
+  framework: "NIST AI RMF"
+  category: "GOVERN"
+  subcategory: "1.1"
+  name: "Legal and Regulatory Requirements"
+  description: "Policies, processes, procedures, and practices are in place to map, measure, and manage AI risks and benefits"
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.purpose"
+      message: "Design must include a stated purpose"
+
+    - check: "field_present"
+      target: "design.intended_users"
+      message: "Design must identify intended users"
+
+    - check: "field_min_length"
+      target: "design.risk_assessment"
+      min_length: 50
+      message: "Risk assessment must be substantive"
+
+  remediation:
+    guidance: "Add transparency documentation to your agent design specifying purpose, intended users, and risk assessment."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF Homepage"
+
+  eval_suggestions:
+    - criterion: "Purpose statement is present and non-empty"
+      metric: "purpose_present"
+      threshold: "boolean: true"
+    - criterion: "Intended users are identified"
+      metric: "intended_users_listed"
+      threshold: "count >= 1"
+    - criterion: "Risk assessment is substantive (>50 chars)"
+      metric: "risk_assessment_length"
+      threshold: ">= 50"

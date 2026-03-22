@@ -1,0 +1,38 @@
+policy:
+  id: "nist-map-1.3"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MAP"
+  subcategory: "1.3"
+  name: "Benefits and Costs"
+  description: "The expected benefits and potential costs of the AI system are documented and assessed. This includes a clear articulation of expected benefits to users and the organization, a cost analysis covering development, deployment, and maintenance, and a return-on-investment assessment that weighs benefits against risks and costs across the AI system lifecycle."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.expected_benefits"
+      message: "Design must document the expected benefits of the AI system"
+
+    - check: "field_present"
+      target: "design.cost_analysis"
+      message: "Design must include a cost analysis covering development, deployment, and maintenance"
+
+    - check: "field_min_length"
+      target: "design.expected_benefits"
+      min_length: 30
+      message: "Expected benefits description must be substantive"
+
+  remediation:
+    guidance: "Document the expected benefits of the AI system for all stakeholder groups, conduct a cost analysis that covers the full lifecycle (development, deployment, maintenance, decommissioning), and assess the return on investment weighing benefits against identified risks and costs."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Benefits are quantified or clearly articulated with supporting evidence"
+      metric: "benefit_documentation_completeness"
+      threshold: "90%"
+    - criterion: "Cost analysis covers full system lifecycle"
+      metric: "lifecycle_cost_coverage"
+      threshold: "100%"

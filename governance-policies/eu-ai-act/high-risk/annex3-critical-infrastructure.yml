@@ -1,0 +1,35 @@
+policy:
+  id: "eu-annex3-critical-infrastructure"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Annex III(2)"
+  name: "High-Risk: Critical Infrastructure"
+  description: "AI systems intended to be used as safety components in the management and operation of critical digital infrastructure, road traffic, or supply of water, gas, heating and electricity"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Annex III(2)"
+  referenced_annexes: ["annex-iii"]
+
+  rules:
+    - check: "field_present"
+      target: "design.critical_infrastructure_assessment"
+      message: "Must assess whether the system is a safety component of critical infrastructure"
+
+    - check: "field_present"
+      target: "design.safety_component_classification"
+      message: "Must document safety component classification"
+
+  remediation:
+    guidance: "If your AI system manages critical infrastructure (digital, transport, energy, water), classify it as high-risk and implement all required safeguards including redundancy and failover mechanisms."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Annex III"
+
+  eval_suggestions:
+    - criterion: "Critical infrastructure assessment performed"
+      metric: "critical_infrastructure_assessed"
+      threshold: "boolean: true"
+    - criterion: "Safety component classification documented"
+      metric: "safety_classification_documented"
+      threshold: "boolean: true"

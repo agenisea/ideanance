@@ -1,0 +1,37 @@
+policy:
+  id: "nist-govern-1.6"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "GOVERN"
+  subcategory: "1.6"
+  name: "Feedback Mechanisms"
+  description: "Mechanisms are in place to collect feedback, report incidents, and drive continuous improvement of AI systems. This includes structured feedback collection from users and affected parties, incident reporting procedures for AI failures or harms, and a continuous improvement process that incorporates lessons learned into future iterations."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.feedback_collection_method"
+      message: "Design must specify how feedback is collected from users and affected parties"
+
+    - check: "field_present"
+      target: "design.incident_reporting_procedure"
+      message: "Design must define an incident reporting procedure for AI failures or harms"
+
+    - check: "field_present"
+      target: "design.continuous_improvement_process"
+      message: "Design must describe a continuous improvement process"
+
+  remediation:
+    guidance: "Define a structured feedback collection method for end users, establish an incident reporting procedure that covers AI-specific failure modes and harms, and document a continuous improvement process that feeds learnings back into system design and governance."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Feedback is actively collected and reviewed on a regular cadence"
+      metric: "feedback_collection_rate"
+      threshold: "monthly"
+    - criterion: "Incidents are reported within defined SLA and resolved with root cause analysis"
+      metric: "incident_resolution_rate"
+      threshold: "95%"

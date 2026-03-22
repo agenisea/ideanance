@@ -1,0 +1,64 @@
+[project]
+name = "ideanance"
+version = "0.1.0"
+description = "Governance-first design workspace for agentic applications"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic-ai>=1.0.0",
+    "pydantic-settings>=2.0.0",
+    "sqlalchemy[asyncio]>=2.0.0",
+    "alembic>=1.13.0",
+    "aiosqlite>=0.20.0",
+    "sse-starlette>=3.0.0",
+    "httpx>=0.27.0",
+    "pyyaml>=6.0",
+    "structlog>=24.0.0",
+    "uuid-utils>=0.9.0",
+]
+
+[project.optional-dependencies]
+prod = [
+    "asyncpg>=0.29.0",
+    "pgvector>=0.3.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "ruff>=0.5.0",
+    "pyright>=1.1.380",
+    "httpx>=0.27.0",
+]
+
+[project.entry-points."ideanance.governance"]
+nist_ai_rmf = "ideanance.modules.governance.plugins.nist_ai_rmf:NistAiRmfPlugin"
+eu_ai_act = "ideanance.modules.governance.plugins.eu_ai_act:EuAiActPlugin"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ideanance"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008"]  # Depends() in FastAPI defaults is idiomatic
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.12"
+typeCheckingMode = "strict"

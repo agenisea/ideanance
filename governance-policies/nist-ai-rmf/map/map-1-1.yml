@@ -1,0 +1,36 @@
+policy:
+  id: "nist-map-1.1"
+  framework: "NIST AI RMF"
+  category: "MAP"
+  subcategory: "1.1"
+  name: "Intended Purpose Documentation"
+  description: "Intended purposes, potentially beneficial uses, context of use, and design assumptions are documented"
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.use_case"
+      message: "Design must document the intended use case"
+
+    - check: "field_present"
+      target: "design.limitations"
+      message: "Design must document known limitations"
+
+    - check: "field_not_empty_list"
+      target: "design.stakeholders"
+      message: "Design must identify stakeholders"
+
+  remediation:
+    guidance: "Document the intended use case, known limitations, and stakeholders for your AI system design."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Use case documented"
+      metric: "use_case_present"
+      threshold: "boolean: true"
+    - criterion: "Limitations acknowledged"
+      metric: "limitations_documented"
+      threshold: "boolean: true"

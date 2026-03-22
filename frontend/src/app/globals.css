@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Vintage Paper Palette (oklch) */
+  --color-background: oklch(0.97 0.01 80);
+  --color-foreground: oklch(0.20 0.02 240);
+  --color-card: oklch(0.95 0.01 80);
+  --color-card-foreground: oklch(0.20 0.02 240);
+  --color-primary: oklch(0.35 0.05 240);
+  --color-primary-foreground: oklch(0.97 0.01 80);
+  --color-secondary: oklch(0.90 0.02 80);
+  --color-secondary-foreground: oklch(0.25 0.02 240);
+  --color-muted: oklch(0.92 0.01 80);
+  --color-muted-foreground: oklch(0.50 0.02 240);
+  --color-accent: oklch(0.88 0.03 80);
+  --color-accent-foreground: oklch(0.25 0.02 240);
+  --color-destructive: oklch(0.55 0.20 25);
+  --color-border: oklch(0.85 0.02 80);
+  --color-ring: oklch(0.35 0.05 240);
+
+  /* Surface tokens (used by Phase 2 components) */
+  --color-surface: oklch(0.96 0.01 80);
+  --color-surface-hover: oklch(0.93 0.01 80);
+  --color-text-secondary: oklch(0.50 0.02 240);
+  --color-on-primary: oklch(0.97 0.01 80);
+  --color-info: oklch(0.60 0.15 240);
+
+  /* Governance-specific tokens */
+  --color-governance-pass: oklch(0.65 0.15 145);
+  --color-governance-warn: oklch(0.75 0.15 85);
+  --color-governance-fail: oklch(0.55 0.20 25);
+  --color-governance-na: oklch(0.70 0.02 240);
+
+  /* Typography — var() references resolve at runtime via next/font */
+  --font-heading: var(--font-geist-sans), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter), var(--font-dm-sans), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Radius */
+  --radius: 0.875rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Accessibility: respect motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

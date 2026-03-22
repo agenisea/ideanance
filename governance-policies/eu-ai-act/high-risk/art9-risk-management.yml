@@ -1,0 +1,40 @@
+policy:
+  id: "eu-art9-risk-management"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 9"
+  name: "Risk Management System"
+  description: "High-risk AI systems shall have a risk management system established, implemented, documented and maintained as a continuous iterative process"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 9"
+  referenced_annexes: ["annex-iii"]
+
+  rules:
+    - check: "field_present"
+      target: "design.risk_management_plan"
+      message: "High-risk AI must have a documented risk management system"
+
+    - check: "field_present"
+      target: "design.risk_mitigation_measures"
+      message: "Must document risk mitigation measures"
+
+    - check: "field_min_length"
+      target: "design.risk_management_plan"
+      min_length: 50
+      message: "Risk management plan must be substantive"
+
+  remediation:
+    guidance: "Establish a continuous risk management process covering identification, analysis, estimation, and evaluation of risks. Document mitigation measures for each identified risk."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 9"
+
+  eval_suggestions:
+    - criterion: "Risk management system documented"
+      metric: "risk_management_plan_present"
+      threshold: "boolean: true"
+    - criterion: "Risk mitigation measures documented"
+      metric: "risk_mitigation_measures_present"
+      threshold: "boolean: true"

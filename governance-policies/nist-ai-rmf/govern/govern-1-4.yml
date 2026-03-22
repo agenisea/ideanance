@@ -1,0 +1,42 @@
+policy:
+  id: "nist-govern-1.4"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "GOVERN"
+  subcategory: "1.4"
+  name: "AI Risk Management Process"
+  description: "A formal AI risk management process is established with a documented plan, defined review cadence, and clear accountability structures. The process ensures that risks are systematically identified, assessed, and managed throughout the AI system lifecycle with designated responsible parties and regular review cycles."
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.risk_management_plan"
+      message: "Design must include a risk management plan"
+
+    - check: "field_present"
+      target: "design.review_cadence"
+      message: "Design must specify a review cadence for risk reassessment"
+
+    - check: "field_present"
+      target: "design.accountability_owner"
+      message: "Design must designate an accountable owner for AI risk management"
+
+    - check: "field_min_length"
+      target: "design.risk_management_plan"
+      min_length: 50
+      message: "Risk management plan must be substantive"
+
+  remediation:
+    guidance: "Establish a formal risk management plan that includes a review cadence (e.g., quarterly, bi-annually) and designate an accountable owner responsible for overseeing AI risk management activities for this system."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Risk management plan is documented and reviewed on schedule"
+      metric: "risk_review_adherence"
+      threshold: "95%"
+    - criterion: "Accountability owner is designated and actively engaged"
+      metric: "accountability_assignment_rate"
+      threshold: "100%"

@@ -1,0 +1,39 @@
+policy:
+  id: "eu-art5-1-social-scoring"
+  framework: "EU AI Act"
+  category: "prohibited"
+  subcategory: "Article 5(1)(c)"
+  name: "Prohibition on Social Scoring"
+  description: "AI systems that evaluate or classify natural persons based on social behaviour or personality characteristics leading to detrimental or unfavourable treatment are prohibited"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "unacceptable"
+  article_reference: "Art. 5(1)(c)"
+
+  rules:
+    - check: "field_present"
+      target: "design.prohibited_uses_review"
+      message: "Must document review of prohibited AI practices"
+
+    - check: "field_present"
+      target: "design.social_scoring_declaration"
+      message: "Must declare the system does not perform social scoring"
+
+    - check: "field_one_of"
+      target: "design.social_scoring_risk"
+      values: ["none", "mitigated", "not_applicable"]
+      message: "Social scoring risk must be assessed as none, mitigated, or not applicable"
+
+  remediation:
+    guidance: "Conduct a review of your AI system to ensure it does not evaluate or classify persons based on social behaviour leading to detrimental treatment. Document the review and declaration."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 5"
+
+  eval_suggestions:
+    - criterion: "Prohibited uses review documented"
+      metric: "prohibited_uses_review_present"
+      threshold: "boolean: true"
+    - criterion: "Social scoring declaration present"
+      metric: "social_scoring_declaration_present"
+      threshold: "boolean: true"

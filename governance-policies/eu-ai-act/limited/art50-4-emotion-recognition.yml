@@ -1,0 +1,35 @@
+policy:
+  id: "eu-art50-4-emotion-recognition"
+  framework: "EU AI Act"
+  category: "limited"
+  subcategory: "Article 50(3)"
+  name: "Emotion Recognition Disclosure"
+  description: "Deployers of an emotion recognition system shall inform natural persons exposed thereto of the operation of the system"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "limited"
+  article_reference: "Art. 50(3)"
+
+  rules:
+    - check: "field_present"
+      target: "design.emotion_recognition_disclosure"
+      message: "Must disclose if the system performs emotion recognition"
+
+    - check: "field_one_of"
+      target: "design.emotion_recognition_present"
+      values: ["yes", "no"]
+      message: "Must declare whether emotion recognition is present"
+
+  remediation:
+    guidance: "If your AI system performs emotion recognition, inform all exposed persons of its operation. Provide clear, accessible notice before processing begins."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 50"
+
+  eval_suggestions:
+    - criterion: "Emotion recognition disclosure present"
+      metric: "emotion_recognition_disclosure_present"
+      threshold: "boolean: true"
+    - criterion: "Emotion recognition capability declared"
+      metric: "emotion_recognition_declared"
+      threshold: "boolean: true"

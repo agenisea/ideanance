@@ -1,0 +1,37 @@
+policy:
+  id: "nist-map-1.5"
+  framework: "NIST AI RMF"
+  category: "MAP"
+  subcategory: "1.5"
+  name: "Risk Identification"
+  description: "Risks are identified including potential negative impacts on individuals, communities, and the environment"
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.threat_model"
+      message: "Design must include a threat model"
+
+    - check: "field_not_empty_list"
+      target: "design.failure_modes"
+      message: "Design must identify potential failure modes"
+
+    - check: "field_min_length"
+      target: "design.risk_assessment"
+      min_length: 50
+      message: "Risk assessment must be substantive"
+
+  remediation:
+    guidance: "Add a threat model, enumerate failure modes, and provide a substantive risk assessment."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Threat model present"
+      metric: "threat_model_present"
+      threshold: "boolean: true"
+    - criterion: "Failure modes identified"
+      metric: "failure_modes_count"
+      threshold: "count >= 1"

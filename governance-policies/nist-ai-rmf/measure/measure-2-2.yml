@@ -1,0 +1,37 @@
+policy:
+  id: "nist-measure-2.2"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MEASURE"
+  subcategory: "2.2"
+  name: "AI System Performance"
+  description: "AI system performance is measured against defined benchmarks, accuracy targets, and latency requirements. This ensures that the system meets its intended performance objectives and that deviations from acceptable performance levels are detected and addressed promptly."
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.performance_benchmarks"
+      message: "Design must define performance benchmarks for the AI system"
+
+    - check: "field_present"
+      target: "design.accuracy_targets"
+      message: "Design must specify accuracy targets for AI system outputs"
+
+    - check: "field_present"
+      target: "design.latency_requirements"
+      message: "Design must define latency requirements for system responses"
+
+  remediation:
+    guidance: "Define performance benchmarks that are relevant to the system's intended use, set measurable accuracy targets for AI outputs, and specify latency requirements that meet user and operational needs. Include acceptable tolerance ranges for each metric."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "System meets defined accuracy targets across evaluation datasets"
+      metric: "accuracy_target_achievement"
+      threshold: "90%"
+    - criterion: "System responses meet latency requirements under normal load"
+      metric: "latency_compliance_rate"
+      threshold: "95%"

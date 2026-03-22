@@ -1,0 +1,35 @@
+policy:
+  id: "eu-art5-3-biometric-categorisation"
+  framework: "EU AI Act"
+  category: "prohibited"
+  subcategory: "Article 5(1)(g)"
+  name: "Prohibition on Biometric Categorisation"
+  description: "AI systems that categorise natural persons based on biometric data to deduce race, political opinions, trade union membership, religious beliefs, sex life, or sexual orientation are prohibited"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "unacceptable"
+  article_reference: "Art. 5(1)(g)"
+
+  rules:
+    - check: "field_present"
+      target: "design.biometric_data_usage"
+      message: "Must document whether the system processes biometric data"
+
+    - check: "field_one_of"
+      target: "design.biometric_categorisation_risk"
+      values: ["none", "not_applicable"]
+      message: "Biometric categorisation for prohibited purposes must not be present"
+
+  remediation:
+    guidance: "Ensure your AI system does not use biometric data to infer sensitive attributes such as race, political opinions, religious beliefs, sex life, or sexual orientation. Document biometric data handling."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 5"
+
+  eval_suggestions:
+    - criterion: "Biometric data usage documented"
+      metric: "biometric_data_usage_documented"
+      threshold: "boolean: true"
+    - criterion: "No prohibited biometric categorisation"
+      metric: "biometric_categorisation_absent"
+      threshold: "boolean: true"

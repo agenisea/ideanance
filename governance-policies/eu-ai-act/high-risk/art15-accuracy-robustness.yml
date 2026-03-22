@@ -1,0 +1,38 @@
+policy:
+  id: "eu-art15-accuracy-robustness"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 15"
+  name: "Accuracy, Robustness and Cybersecurity"
+  description: "High-risk AI systems shall be designed and developed so as to achieve an appropriate level of accuracy, robustness and cybersecurity"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 15"
+
+  rules:
+    - check: "field_present"
+      target: "design.accuracy_metrics"
+      message: "Must define accuracy metrics and acceptable levels"
+
+    - check: "field_present"
+      target: "design.robustness_measures"
+      message: "Must document robustness and resilience measures"
+
+    - check: "field_present"
+      target: "design.cybersecurity_measures"
+      message: "Must document cybersecurity measures"
+
+  remediation:
+    guidance: "Define accuracy levels appropriate for the intended purpose. Implement measures for robustness against errors and adversarial attacks, and cybersecurity measures to protect against unauthorized access."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 15"
+
+  eval_suggestions:
+    - criterion: "Accuracy metrics defined"
+      metric: "accuracy_metrics_present"
+      threshold: "boolean: true"
+    - criterion: "Robustness measures documented"
+      metric: "robustness_measures_present"
+      threshold: "boolean: true"

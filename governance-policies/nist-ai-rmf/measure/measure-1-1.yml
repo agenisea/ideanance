@@ -1,0 +1,37 @@
+policy:
+  id: "nist-measure-1.1"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MEASURE"
+  subcategory: "1.1"
+  name: "Appropriate Metrics"
+  description: "Appropriate metrics are selected and documented to measure the AI system's performance, trustworthiness, and risk characteristics. This includes providing a rationale for metric selection, defining the measurement methodology for each metric, and establishing baseline values against which future measurements are compared."
+  severity: "warning"
+  applies_to: ["agent_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.metric_selection_rationale"
+      message: "Design must provide a rationale for the metrics selected"
+
+    - check: "field_present"
+      target: "design.measurement_methodology"
+      message: "Design must define the measurement methodology for each metric"
+
+    - check: "field_not_empty_list"
+      target: "design.baseline_metrics"
+      message: "Design must establish baseline metric values for comparison"
+
+  remediation:
+    guidance: "Select metrics appropriate to the AI system's context and risk profile, provide a clear rationale for why each metric was chosen, define the methodology for measurement (tools, frequency, data sources), and establish baseline values to enable meaningful comparison over time."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Each selected metric has a documented rationale aligned with system objectives"
+      metric: "metric_rationale_coverage"
+      threshold: "100%"
+    - criterion: "Baseline values are established before deployment"
+      metric: "baseline_establishment_rate"
+      threshold: "100%"

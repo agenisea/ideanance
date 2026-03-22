@@ -1,0 +1,38 @@
+policy:
+  id: "eu-art10-data-governance"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 10"
+  name: "Data and Data Governance"
+  description: "High-risk AI systems using techniques involving training with data shall be developed on the basis of training, validation and testing data sets that meet quality criteria"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 10"
+
+  rules:
+    - check: "field_present"
+      target: "design.data_governance_plan"
+      message: "Must have a data governance plan for training/validation/testing data"
+
+    - check: "field_present"
+      target: "design.data_quality_criteria"
+      message: "Must define data quality criteria"
+
+    - check: "field_present"
+      target: "design.bias_detection_measures"
+      message: "Must document bias detection and mitigation measures for data sets"
+
+  remediation:
+    guidance: "Define data governance practices including quality criteria for training data, bias detection measures, and validation/testing data set management."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 10"
+
+  eval_suggestions:
+    - criterion: "Data governance plan present"
+      metric: "data_governance_plan_present"
+      threshold: "boolean: true"
+    - criterion: "Bias detection measures documented"
+      metric: "bias_detection_documented"
+      threshold: "boolean: true"

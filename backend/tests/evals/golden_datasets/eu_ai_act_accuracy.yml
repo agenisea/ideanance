@@ -1,0 +1,47 @@
+cases:
+  - name: "high_risk_missing_risk_management"
+    design:
+      content:
+        design:
+          purpose: "Automated hiring decisions"
+    expected_gaps:
+      - policy: "eu-art9-risk-management"
+        status: "fail"
+      - policy: "eu-art10-data-governance"
+        status: "fail"
+
+  - name: "chatbot_missing_disclosure"
+    design:
+      content:
+        design:
+          purpose: "Customer support chatbot"
+    expected_gaps:
+      - policy: "eu-art50-1-chatbot-disclosure"
+        status: "fail"
+
+  - name: "well_documented_high_risk"
+    design:
+      content:
+        design:
+          purpose: "Credit scoring AI system"
+          risk_management_plan: "Continuous risk management with quarterly reviews and stakeholder engagement"
+          risk_mitigation_measures: "Bias testing, adversarial robustness, human oversight"
+          data_governance_plan: "Data quality framework with bias detection"
+          data_quality_criteria: "Completeness, accuracy, representativeness"
+          bias_detection_measures: "Statistical parity, equalized odds testing"
+          technical_documentation: "Comprehensive documentation covering architecture, training data, performance metrics, known limitations, and validation results"
+          logging_capabilities: "Full event logging with structured outputs"
+          log_retention_policy: "7 year retention per regulatory requirements"
+          transparency_measures: "Explainability dashboard for deployers"
+          deployer_instructions: "Deployment guide with monitoring requirements"
+          intended_users: "Financial institution risk teams"
+          human_oversight_measures: "Human-in-the-loop for all decisions above threshold"
+          override_capability: "Manual override available for all automated decisions"
+          accuracy_metrics: "AUC-ROC > 0.85, false positive rate < 5%"
+          robustness_measures: "Adversarial testing, input validation"
+          cybersecurity_measures: "Encryption at rest and in transit, access controls"
+          quality_management_system: "ISO-aligned quality management"
+          compliance_procedures: "Quarterly compliance review"
+          monitoring_plan: "Real-time drift detection"
+          fundamental_rights_impact: "Impact assessment covering non-discrimination, privacy, dignity, and fairness with mitigation measures documented"
+    expected_gaps: []

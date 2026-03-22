@@ -1,0 +1,39 @@
+policy:
+  id: "eu-art14-human-oversight"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 14"
+  name: "Human Oversight"
+  description: "High-risk AI systems shall be designed and developed so as to be effectively overseen by natural persons during the period of use"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 14"
+
+  rules:
+    - check: "field_present"
+      target: "design.human_oversight_measures"
+      message: "Must document human oversight measures"
+
+    - check: "field_present"
+      target: "design.override_capability"
+      message: "Must provide capability for human override or intervention"
+
+    - check: "field_min_length"
+      target: "design.human_oversight_measures"
+      min_length: 30
+      message: "Human oversight measures must be substantive"
+
+  remediation:
+    guidance: "Implement human oversight mechanisms enabling natural persons to understand, monitor, and intervene in the AI system's operation. Include override or stop capabilities."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 14"
+
+  eval_suggestions:
+    - criterion: "Human oversight measures documented"
+      metric: "human_oversight_present"
+      threshold: "boolean: true"
+    - criterion: "Override capability present"
+      metric: "override_capability_present"
+      threshold: "boolean: true"

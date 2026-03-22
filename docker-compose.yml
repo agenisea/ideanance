@@ -1,0 +1,40 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./data/ideanance.db
+      - CORS_ORIGINS=["http://localhost:3000"]
+    volumes:
+      - ./backend/src:/app/src
+      - ./governance-policies:/app/governance-policies
+      - backend-data:/app/data
+    command: uv run uvicorn ideanance.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    volumes:
+      - ./frontend/src:/app/src
+    command: pnpm dev
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  backend-data:

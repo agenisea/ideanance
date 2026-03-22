@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art95-codes-of-conduct"
+  framework: "EU AI Act"
+  category: "transparency"
+  subcategory: "Article 95"
+  name: "Voluntary Codes of Conduct"
+  description: "The Commission and Member States shall encourage the drawing up of codes of conduct intended to foster voluntary application of requirements for non-high-risk AI systems"
+  severity: "info"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "minimal"
+  article_reference: "Art. 95"
+
+  rules:
+    - check: "field_present"
+      target: "design.voluntary_commitments"
+      message: "Should document any voluntary codes of conduct adopted"
+
+    - check: "field_present"
+      target: "design.ethical_guidelines"
+      message: "Should document ethical guidelines followed"
+
+  remediation:
+    guidance: "Even for non-high-risk AI systems, consider adopting voluntary codes of conduct that promote responsible AI practices including transparency, fairness, and accountability."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 95"
+
+  eval_suggestions:
+    - criterion: "Voluntary commitments documented"
+      metric: "voluntary_commitments_documented"
+      threshold: "boolean: true"
+    - criterion: "Ethical guidelines documented"
+      metric: "ethical_guidelines_documented"
+      threshold: "boolean: true"

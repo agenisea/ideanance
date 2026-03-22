@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art17-quality-management"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 17"
+  name: "Quality Management System"
+  description: "Providers of high-risk AI systems shall put a quality management system in place that ensures compliance with this Regulation"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 17"
+
+  rules:
+    - check: "field_present"
+      target: "design.quality_management_system"
+      message: "Must document a quality management system"
+
+    - check: "field_present"
+      target: "design.compliance_procedures"
+      message: "Must define compliance procedures"
+
+  remediation:
+    guidance: "Establish a quality management system covering regulatory compliance strategy, design and development procedures, testing and validation, and post-market monitoring."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 17"
+
+  eval_suggestions:
+    - criterion: "Quality management system documented"
+      metric: "quality_management_system_present"
+      threshold: "boolean: true"
+    - criterion: "Compliance procedures defined"
+      metric: "compliance_procedures_present"
+      threshold: "boolean: true"

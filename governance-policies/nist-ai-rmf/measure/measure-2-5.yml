@@ -1,0 +1,42 @@
+policy:
+  id: "nist-measure-2.5"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MEASURE"
+  subcategory: "2.5"
+  name: "Bias and Fairness"
+  description: "The AI system is assessed for bias and fairness across relevant demographic groups and use contexts. This includes conducting a structured bias assessment, defining fairness criteria appropriate to the application, and evaluating outcomes for demographic parity to ensure the system does not disproportionately harm or disadvantage specific groups."
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.bias_assessment"
+      message: "Design must include a bias assessment methodology"
+
+    - check: "field_not_empty_list"
+      target: "design.fairness_criteria"
+      message: "Design must define fairness criteria appropriate to the application"
+
+    - check: "field_present"
+      target: "design.demographic_parity_analysis"
+      message: "Design must include a demographic parity analysis or justification for alternative fairness measures"
+
+    - check: "field_min_length"
+      target: "design.bias_assessment"
+      min_length: 50
+      message: "Bias assessment must be substantive and detailed"
+
+  remediation:
+    guidance: "Conduct a thorough bias assessment that evaluates training data, model outputs, and system behavior across demographic groups. Define fairness criteria appropriate to the application context (e.g., demographic parity, equalized odds, individual fairness) and document the analysis results with mitigation strategies for any identified biases."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Bias assessment covers all relevant demographic groups and protected attributes"
+      metric: "bias_assessment_coverage"
+      threshold: "95%"
+    - criterion: "Fairness criteria are met across demographic groups"
+      metric: "fairness_criteria_pass_rate"
+      threshold: "90%"

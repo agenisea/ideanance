@@ -1,0 +1,36 @@
+policy:
+  id: "nist-manage-1.1"
+  framework: "NIST AI RMF"
+  category: "MANAGE"
+  subcategory: "1.1"
+  name: "Risk Response"
+  description: "Plans for risk response are developed and implemented for identified and measured risks"
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.mitigation_plan"
+      message: "Design must include a risk mitigation plan"
+
+    - check: "field_present"
+      target: "design.escalation_path"
+      message: "Design must define an escalation path for critical issues"
+
+    - check: "field_present"
+      target: "design.human_oversight"
+      message: "Design must specify human oversight mechanisms"
+
+  remediation:
+    guidance: "Add a risk mitigation plan, escalation path, and human oversight mechanisms to your design."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Mitigation plan present"
+      metric: "mitigation_plan_present"
+      threshold: "boolean: true"
+    - criterion: "Escalation path defined"
+      metric: "escalation_path_present"
+      threshold: "boolean: true"

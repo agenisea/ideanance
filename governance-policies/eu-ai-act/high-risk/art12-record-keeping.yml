@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art12-record-keeping"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 12"
+  name: "Record-Keeping"
+  description: "High-risk AI systems shall technically allow for the automatic recording of events (logs) over the lifetime of the system"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 12"
+
+  rules:
+    - check: "field_present"
+      target: "design.logging_capabilities"
+      message: "Must document automatic event logging capabilities"
+
+    - check: "field_present"
+      target: "design.log_retention_policy"
+      message: "Must define a log retention policy"
+
+  remediation:
+    guidance: "Implement automatic logging of system events including input data, outputs, and operational decisions. Define retention periods appropriate for the risk level."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 12"
+
+  eval_suggestions:
+    - criterion: "Logging capabilities documented"
+      metric: "logging_capabilities_present"
+      threshold: "boolean: true"
+    - criterion: "Log retention policy defined"
+      metric: "log_retention_policy_present"
+      threshold: "boolean: true"

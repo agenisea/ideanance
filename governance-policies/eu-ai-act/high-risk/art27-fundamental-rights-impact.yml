@@ -1,0 +1,35 @@
+policy:
+  id: "eu-art27-fundamental-rights-impact"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 27"
+  name: "Fundamental Rights Impact Assessment"
+  description: "Deployers of high-risk AI systems shall perform an assessment of the impact on fundamental rights before putting the system into use"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 27"
+
+  rules:
+    - check: "field_present"
+      target: "design.fundamental_rights_impact"
+      message: "Must perform a fundamental rights impact assessment"
+
+    - check: "field_min_length"
+      target: "design.fundamental_rights_impact"
+      min_length: 50
+      message: "Fundamental rights impact assessment must be substantive"
+
+  remediation:
+    guidance: "Conduct a fundamental rights impact assessment covering how the AI system affects rights to non-discrimination, privacy, freedom of expression, and human dignity."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 27"
+
+  eval_suggestions:
+    - criterion: "Fundamental rights impact assessment present"
+      metric: "fundamental_rights_impact_present"
+      threshold: "boolean: true"
+    - criterion: "Assessment is substantive"
+      metric: "fundamental_rights_impact_length"
+      threshold: ">= 50"

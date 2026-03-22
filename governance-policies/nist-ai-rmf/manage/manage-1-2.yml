@@ -1,0 +1,38 @@
+policy:
+  id: "nist-manage-1.2"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MANAGE"
+  subcategory: "1.2"
+  name: "Risk Prioritization"
+  description: "Identified AI risks are prioritized based on their potential impact severity and likelihood of occurrence. This includes ranking risks to focus mitigation efforts, assessing impact severity across affected dimensions, and evaluating the likelihood of each risk materializing to enable effective resource allocation for risk management."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.risk_ranking"
+      message: "Design must include a prioritized ranking of identified risks"
+
+    - check: "field_one_of"
+      target: "design.impact_severity_scale"
+      values: ["low-medium-high", "1-5-scale", "critical-high-medium-low-negligible"]
+      message: "Design must use a recognized impact severity scale"
+
+    - check: "field_present"
+      target: "design.likelihood_assessment"
+      message: "Design must include a likelihood assessment for each identified risk"
+
+  remediation:
+    guidance: "Prioritize identified risks by creating a risk ranking that combines impact severity and likelihood. Use a recognized severity scale, assess the likelihood of each risk materializing, and produce a prioritized risk register to guide mitigation resource allocation."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "All identified risks are ranked with impact and likelihood scores"
+      metric: "risk_prioritization_coverage"
+      threshold: "100%"
+    - criterion: "High-priority risks have corresponding mitigation plans"
+      metric: "high_risk_mitigation_rate"
+      threshold: "100%"

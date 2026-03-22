@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art53-ai-regulatory-sandbox"
+  framework: "EU AI Act"
+  category: "transparency"
+  subcategory: "Article 53"
+  name: "AI Regulatory Sandbox"
+  description: "AI regulatory sandboxes provide a controlled environment for development, testing and validation of innovative AI systems under regulatory oversight"
+  severity: "info"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "minimal"
+  article_reference: "Art. 53"
+
+  rules:
+    - check: "field_present"
+      target: "design.regulatory_sandbox_status"
+      message: "Should document whether the system is developed under a regulatory sandbox"
+
+    - check: "field_present"
+      target: "design.innovation_safeguards"
+      message: "Should document safeguards for innovative AI development"
+
+  remediation:
+    guidance: "Consider whether your AI system could benefit from development within a regulatory sandbox. Document any sandbox participation and the safeguards applied during testing."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 53"
+
+  eval_suggestions:
+    - criterion: "Regulatory sandbox status documented"
+      metric: "sandbox_status_documented"
+      threshold: "boolean: true"
+    - criterion: "Innovation safeguards documented"
+      metric: "innovation_safeguards_documented"
+      threshold: "boolean: true"

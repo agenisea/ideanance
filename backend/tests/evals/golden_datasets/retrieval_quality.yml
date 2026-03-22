@@ -1,0 +1,27 @@
+cases:
+  - name: "purpose_retrieval"
+    query: "AI system purpose and intended use"
+    frameworks: ["NIST AI RMF"]
+    expected_relevant_sections:
+      - "nist-govern-1.1"
+      - "nist-govern-1.2"
+
+  - name: "risk_retrieval"
+    query: "risk assessment and impact analysis"
+    frameworks: ["NIST AI RMF"]
+    expected_relevant_sections:
+      - "nist-map-1.5"
+      - "nist-map-1.1"
+
+  - name: "monitoring_retrieval"
+    query: "continuous monitoring and performance tracking"
+    frameworks: ["NIST AI RMF"]
+    expected_relevant_sections:
+      - "nist-measure-2.5"
+      - "nist-manage-2.1"
+
+  - name: "transparency_retrieval"
+    query: "transparency and explainability requirements"
+    frameworks: ["NIST AI RMF"]
+    expected_relevant_sections:
+      - "nist-govern-1.4"

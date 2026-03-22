@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art50-2-deepfake-disclosure"
+  framework: "EU AI Act"
+  category: "limited"
+  subcategory: "Article 50(4)"
+  name: "Deepfake and Synthetic Content Disclosure"
+  description: "Deployers of AI systems that generate or manipulate image, audio or video content constituting a deep fake shall disclose that the content has been artificially generated or manipulated"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "limited"
+  article_reference: "Art. 50(4)"
+
+  rules:
+    - check: "field_present"
+      target: "design.synthetic_content_handling"
+      message: "Must document how synthetic/generated content is labelled"
+
+    - check: "field_present"
+      target: "design.deepfake_disclosure"
+      message: "Must include deepfake disclosure if system generates synthetic media"
+
+  remediation:
+    guidance: "If your AI system generates synthetic images, audio, or video, implement machine-readable labelling and visible disclosure that the content is AI-generated."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 50"
+
+  eval_suggestions:
+    - criterion: "Synthetic content handling documented"
+      metric: "synthetic_content_handling_documented"
+      threshold: "boolean: true"
+    - criterion: "Deepfake disclosure present"
+      metric: "deepfake_disclosure_present"
+      threshold: "boolean: true"

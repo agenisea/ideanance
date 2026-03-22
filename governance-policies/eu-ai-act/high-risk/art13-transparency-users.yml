@@ -1,0 +1,38 @@
+policy:
+  id: "eu-art13-transparency-users"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 13"
+  name: "Transparency and Provision of Information to Deployers"
+  description: "High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret outputs"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 13"
+
+  rules:
+    - check: "field_present"
+      target: "design.transparency_measures"
+      message: "Must document transparency measures for system outputs"
+
+    - check: "field_present"
+      target: "design.deployer_instructions"
+      message: "Must provide instructions for deployers on interpreting outputs"
+
+    - check: "field_present"
+      target: "design.intended_users"
+      message: "Must identify intended deployers and users"
+
+  remediation:
+    guidance: "Design the AI system so deployers can understand and interpret its outputs. Provide clear instructions including the system's capabilities, limitations, and known risks."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 13"
+
+  eval_suggestions:
+    - criterion: "Transparency measures documented"
+      metric: "transparency_measures_present"
+      threshold: "boolean: true"
+    - criterion: "Deployer instructions provided"
+      metric: "deployer_instructions_present"
+      threshold: "boolean: true"

@@ -1,0 +1,37 @@
+policy:
+  id: "nist-map-1.6"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MAP"
+  subcategory: "1.6"
+  name: "Impact Assessment"
+  description: "A comprehensive impact assessment is conducted to evaluate the potential effects of the AI system across multiple dimensions. This includes categorizing impacts by type (social, economic, environmental), identifying affected populations and communities, and assessing environmental impact including computational resource consumption and carbon footprint."
+  severity: "error"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.impact_categories"
+      message: "Design must identify impact categories (e.g., social, economic, environmental)"
+
+    - check: "field_not_empty_list"
+      target: "design.affected_populations"
+      message: "Design must identify populations and communities affected by the AI system"
+
+    - check: "field_present"
+      target: "design.environmental_impact"
+      message: "Design must assess the environmental impact of the AI system"
+
+  remediation:
+    guidance: "Conduct a structured impact assessment that categorizes potential effects (social, economic, environmental), identifies all affected populations and communities with attention to vulnerable groups, and evaluates the environmental footprint including energy consumption and resource utilization."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Impact categories cover social, economic, and environmental dimensions"
+      metric: "impact_dimension_coverage"
+      threshold: "3"
+    - criterion: "Affected populations are identified with attention to vulnerable groups"
+      metric: "population_identification_completeness"
+      threshold: "90%"

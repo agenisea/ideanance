@@ -1,0 +1,29 @@
+cases:
+  - name: "multi_framework_all_pass"
+    frameworks: ["NIST AI RMF", "EU AI Act"]
+    design:
+      content:
+        design:
+          purpose: "AI-powered medical triage assistant"
+          intended_users: "Emergency department clinicians"
+          risk_assessment: "Comprehensive risk analysis covering misdiagnosis, bias in triage scoring, and patient safety"
+          risk_management_plan: "Continuous risk management process with stakeholder review"
+          risk_mitigation_measures: "Multi-layer validation, human oversight required"
+          prohibited_uses_review: "System reviewed for prohibited practices"
+          social_scoring_declaration: "System does not perform social scoring"
+          social_scoring_risk: "none"
+          manipulation_safeguards: "No manipulative or deceptive techniques are used in the system"
+          vulnerable_groups_assessment: "Impact assessment completed for elderly and cognitively impaired patients"
+    expected_nist_pass: true
+    expected_eu_pass_partial: true
+
+  - name: "multi_framework_missing_eu"
+    frameworks: ["NIST AI RMF", "EU AI Act"]
+    design:
+      content:
+        design:
+          purpose: "Customer recommendation engine"
+          intended_users: "E-commerce shoppers"
+          risk_assessment: "Low risk recommendation system with no critical safety implications"
+    expected_nist_pass: true
+    expected_eu_fail_count_min: 5

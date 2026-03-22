@@ -1,0 +1,39 @@
+policy:
+  id: "eu-art11-technical-documentation"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Article 11"
+  name: "Technical Documentation"
+  description: "Technical documentation shall be drawn up before a high-risk AI system is placed on the market or put into service, and kept up to date"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Art. 11"
+
+  rules:
+    - check: "field_present"
+      target: "design.technical_documentation"
+      message: "Must have technical documentation for the AI system"
+
+    - check: "field_present"
+      target: "design.purpose"
+      message: "Technical documentation must include the intended purpose"
+
+    - check: "field_min_length"
+      target: "design.technical_documentation"
+      min_length: 100
+      message: "Technical documentation must be comprehensive"
+
+  remediation:
+    guidance: "Prepare technical documentation covering the system's intended purpose, design specifications, development process, and performance metrics before deployment."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 11"
+
+  eval_suggestions:
+    - criterion: "Technical documentation present"
+      metric: "technical_documentation_present"
+      threshold: "boolean: true"
+    - criterion: "Documentation is comprehensive"
+      metric: "technical_documentation_length"
+      threshold: ">= 100"

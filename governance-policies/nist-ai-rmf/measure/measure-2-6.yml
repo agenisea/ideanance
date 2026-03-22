@@ -1,0 +1,37 @@
+policy:
+  id: "nist-measure-2.6"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MEASURE"
+  subcategory: "2.6"
+  name: "Computational and Environmental"
+  description: "The computational requirements and environmental impact of the AI system are measured and documented. This includes specifying compute resource requirements for training and inference, estimating energy consumption across the system lifecycle, and considering broader environmental impacts to promote sustainable AI development practices."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.compute_requirements"
+      message: "Design must document computational resource requirements for training and inference"
+
+    - check: "field_present"
+      target: "design.energy_consumption_estimate"
+      message: "Design must include an energy consumption estimate"
+
+    - check: "field_present"
+      target: "design.environmental_considerations"
+      message: "Design must address environmental considerations for the AI system"
+
+  remediation:
+    guidance: "Document the computational requirements (hardware, GPU/TPU hours, memory) for both training and inference. Estimate energy consumption and carbon footprint, and describe environmental considerations including strategies to minimize the system's environmental impact such as model efficiency optimization and green computing practices."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Compute requirements are documented with resource utilization estimates"
+      metric: "compute_documentation_completeness"
+      threshold: "100%"
+    - criterion: "Energy consumption is estimated and reduction strategies are identified"
+      metric: "environmental_impact_assessment_completeness"
+      threshold: "90%"

@@ -1,0 +1,36 @@
+policy:
+  id: "nist-govern-1.2"
+  framework: "NIST AI RMF"
+  category: "GOVERN"
+  subcategory: "1.2"
+  name: "Trustworthy AI Characteristics"
+  description: "Trustworthiness characteristics are integrated into organizational policies and AI system design"
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_present"
+      target: "design.fairness_considerations"
+      message: "Design must address fairness considerations"
+
+    - check: "field_present"
+      target: "design.transparency_measures"
+      message: "Design must document transparency measures"
+
+    - check: "field_present"
+      target: "design.safety_controls"
+      message: "Design must specify safety controls"
+
+  remediation:
+    guidance: "Document how your design addresses fairness, transparency, and safety as core trustworthy AI characteristics."
+    references:
+      - url: "https://airc.nist.gov/AI_RMF_Profiles"
+        title: "NIST AI RMF Profiles"
+
+  eval_suggestions:
+    - criterion: "Fairness considerations documented"
+      metric: "fairness_documented"
+      threshold: "boolean: true"
+    - criterion: "Transparency measures specified"
+      metric: "transparency_documented"
+      threshold: "boolean: true"

@@ -1,0 +1,34 @@
+policy:
+  id: "eu-art50-1-chatbot-disclosure"
+  framework: "EU AI Act"
+  category: "limited"
+  subcategory: "Article 50(1)"
+  name: "Chatbot Disclosure Obligation"
+  description: "Providers shall ensure that AI systems intended to interact directly with natural persons are designed so that persons are informed they are interacting with an AI system"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "limited"
+  article_reference: "Art. 50(1)"
+
+  rules:
+    - check: "field_present"
+      target: "design.ai_disclosure"
+      message: "Must include disclosure that users are interacting with an AI system"
+
+    - check: "field_present"
+      target: "design.disclosure_mechanism"
+      message: "Must describe the mechanism for AI disclosure (e.g., label, banner, spoken notice)"
+
+  remediation:
+    guidance: "Implement a clear, timely disclosure mechanism informing users they are interacting with an AI system. The disclosure must be understandable and accessible."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Article 50"
+
+  eval_suggestions:
+    - criterion: "AI disclosure present"
+      metric: "ai_disclosure_present"
+      threshold: "boolean: true"
+    - criterion: "Disclosure mechanism documented"
+      metric: "disclosure_mechanism_documented"
+      threshold: "boolean: true"

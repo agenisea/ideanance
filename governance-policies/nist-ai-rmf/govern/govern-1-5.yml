@@ -1,0 +1,37 @@
+policy:
+  id: "nist-govern-1.5"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "GOVERN"
+  subcategory: "1.5"
+  name: "Stakeholder Engagement"
+  description: "Ongoing stakeholder engagement is established to ensure that diverse perspectives are incorporated into AI system governance. This includes maintaining an identified stakeholder list, a communication plan for regular updates, and feedback channels that allow stakeholders to raise concerns and contribute to decision-making throughout the AI lifecycle."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.stakeholder_list"
+      message: "Design must include an identified list of stakeholders"
+
+    - check: "field_present"
+      target: "design.communication_plan"
+      message: "Design must include a stakeholder communication plan"
+
+    - check: "field_not_empty_list"
+      target: "design.feedback_channels"
+      message: "Design must specify feedback channels for stakeholder input"
+
+  remediation:
+    guidance: "Identify all relevant stakeholders (internal and external), establish a communication plan with regular touchpoints, and define feedback channels (e.g., surveys, advisory boards, public comment periods) to collect stakeholder input on AI system governance."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Stakeholder engagement activities are conducted regularly"
+      metric: "stakeholder_engagement_frequency"
+      threshold: "quarterly"
+    - criterion: "Feedback from stakeholders is documented and addressed"
+      metric: "feedback_response_rate"
+      threshold: "90%"

@@ -1,0 +1,37 @@
+policy:
+  id: "nist-map-1.2"
+  framework: "NIST AI RMF"
+  version: "1.0"
+  category: "MAP"
+  subcategory: "1.2"
+  name: "Interdisciplinary Stakeholders"
+  description: "Interdisciplinary stakeholders are identified and engaged to bring diverse perspectives to AI system design and risk assessment. This includes assembling a cross-functional team with relevant domain expertise and ensuring that diverse viewpoints spanning technical, ethical, legal, and social dimensions are represented throughout the AI system lifecycle."
+  severity: "warning"
+  applies_to: ["agent_design", "pipeline_design"]
+
+  rules:
+    - check: "field_not_empty_list"
+      target: "design.cross_functional_team"
+      message: "Design must identify cross-functional team members involved in AI system development"
+
+    - check: "field_not_empty_list"
+      target: "design.domain_expertise_areas"
+      message: "Design must list the domain expertise areas represented on the team"
+
+    - check: "field_present"
+      target: "design.diverse_perspectives_statement"
+      message: "Design must include a statement on how diverse perspectives are incorporated"
+
+  remediation:
+    guidance: "Assemble a cross-functional team that includes technical, domain, legal, ethical, and social science expertise. Document the team composition, their areas of expertise, and how diverse perspectives are actively sought and incorporated into design decisions."
+    references:
+      - url: "https://www.nist.gov/artificial-intelligence/ai-risk-management-framework"
+        title: "NIST AI RMF"
+
+  eval_suggestions:
+    - criterion: "Cross-functional team includes at least three distinct expertise areas"
+      metric: "expertise_diversity_count"
+      threshold: "3"
+    - criterion: "Diverse perspectives are documented and reflected in design decisions"
+      metric: "perspective_incorporation_rate"
+      threshold: "85%"

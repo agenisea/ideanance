@@ -1,0 +1,35 @@
+policy:
+  id: "eu-annex3-biometrics"
+  framework: "EU AI Act"
+  category: "high-risk"
+  subcategory: "Annex III(1)"
+  name: "High-Risk: Biometrics"
+  description: "AI systems intended to be used for biometric identification and categorisation of natural persons are classified as high-risk under Annex III"
+  severity: "required"
+  applies_to: ["agent", "pipeline"]
+  risk_level: "high"
+  article_reference: "Annex III(1)"
+  referenced_annexes: ["annex-iii"]
+
+  rules:
+    - check: "field_present"
+      target: "design.biometric_use_case"
+      message: "Must document whether the system involves biometric identification or categorisation"
+
+    - check: "field_present"
+      target: "design.high_risk_classification"
+      message: "Must document the high-risk classification rationale if biometrics are involved"
+
+  remediation:
+    guidance: "If your AI system performs biometric identification or categorisation, classify it as high-risk under Annex III and comply with all high-risk obligations (Articles 9-15)."
+    references:
+      - url: "https://eur-lex.europa.eu/eli/reg/2024/1689"
+        title: "EU AI Act Annex III"
+
+  eval_suggestions:
+    - criterion: "Biometric use case documented"
+      metric: "biometric_use_case_documented"
+      threshold: "boolean: true"
+    - criterion: "High-risk classification documented"
+      metric: "high_risk_classification_documented"
+      threshold: "boolean: true"

@@ -1,0 +1,24 @@
+cases:
+  - name: "nist_eu_risk_management_overlap"
+    frameworks: ["NIST AI RMF", "EU AI Act"]
+    policies:
+      - "nist-govern-1.1"
+      - "eu-art9-risk-management"
+      - "eu-art11-technical-documentation"
+    expected_conflicts_min: 1
+    expected_conflict_types: ["overlap"]
+
+  - name: "nist_eu_human_oversight_field_overlap"
+    frameworks: ["NIST AI RMF", "EU AI Act"]
+    policies:
+      - "nist-govern-1.1"
+      - "eu-art13-transparency-users"
+    expected_conflicts_min: 1
+    description: "Both frameworks check design.intended_users"
+
+  - name: "single_framework_no_conflicts"
+    frameworks: ["NIST AI RMF"]
+    policies:
+      - "nist-govern-1.1"
+      - "nist-map-1.5"
+    expected_conflicts_min: 0
