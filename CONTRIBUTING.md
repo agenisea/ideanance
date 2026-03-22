@@ -13,8 +13,8 @@ cp .env.example .env  # Add your API keys
 ```bash
 cd backend
 uv sync                                          # Install deps
-uv run uvicorn ideanance.main:app --reload       # Dev server (port 8000)
-uv run pytest tests/ -v                          # Run tests (425 tests)
+uv run uvicorn main:app --reload                  # Dev server (port 8000)
+uv run pytest tests/ -v                          # Run tests 
 uv run ruff check src/ tests/                    # Lint
 ```
 
@@ -32,7 +32,7 @@ pnpm build                                       # Type check + build
 ```bash
 cd sdk
 uv sync
-uv run pytest tests/ -v                          # Run tests (12 tests)
+uv run pytest tests/ -v                          # Run tests 
 ```
 
 ## Running Evals
