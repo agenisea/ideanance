@@ -25,7 +25,7 @@ Ideanance is designed to run locally. By default:
 - **Deterministic engine** — the governance engine is pure computation with no LLM calls (<100ms)
 - **YAML safe loading** — `yaml.safe_load()` exclusively; no `!!python/object` deserialization
 - **Content fencing** — user prompts wrapped in `<user_content>` delimiters before passing to LLM agents
-- **PII detection** — 5 regex patterns (email, phone, SSN, credit card, gov ID) with governance content allowlist
+- **PII detection** — 6 regex patterns (email, phone, SSN, credit card, address, DOB) with governance content allowlist
 - **Secret scanning** — 10 patterns (API keys, tokens, private keys) block accidental credential leakage
 - **Audit trail** — every governance check persisted with verdict, confidence, findings, and evidence
 

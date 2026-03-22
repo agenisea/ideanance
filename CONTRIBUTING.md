@@ -13,7 +13,7 @@ cp .env.example .env  # Add your API keys
 ```bash
 cd backend
 uv sync                                          # Install deps
-uv run uvicorn main:app --reload                  # Dev server (port 8000)
+uv run uvicorn main:app --reload                 # Dev server (port 8000)
 uv run pytest tests/ -v                          # Run tests 
 uv run ruff check src/ tests/                    # Lint
 ```
